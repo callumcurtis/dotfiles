@@ -71,10 +71,6 @@
     isNormalUser = true;
     description = "Callum Curtis";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-    #  thunderbird
-    ];
   };
 
   # Allow unfree packages

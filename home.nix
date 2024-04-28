@@ -7,6 +7,7 @@
   # Packages installed to the user profile.
   home.packages = with pkgs; [
     vim
+    firefox
   ];
 
   programs.git = {
