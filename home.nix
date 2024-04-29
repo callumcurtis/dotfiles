@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.username = "callumcurtis";
@@ -10,6 +10,7 @@
   home.packages = with pkgs; [
     lunarvim
     firefox
+    fish
     (pkgs.nerdfonts.override { fonts = ["FiraMono"]; })
   ];
 
@@ -26,6 +27,9 @@
       size = 10;
     };
     theme = "Tokyo Night Moon";
+    settings = {
+      shell = "fish";
+    };
   };
 
   # This value determines the home Manager release that your
