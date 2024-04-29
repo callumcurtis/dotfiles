@@ -4,16 +4,28 @@
   home.username = "callumcurtis";
   home.homeDirectory = "/home/callumcurtis";
 
+  fonts.fontconfig.enable = true;
+
   # Packages installed to the user profile.
   home.packages = with pkgs; [
     lunarvim
     firefox
+    (pkgs.nerdfonts.override { fonts = ["FiraMono"]; })
   ];
 
   programs.git = {
     enable = true;
     userName = "Callum Curtis";
     userEmail = "105407637+callumcurtis@users.noreply.github.com";
+  };
+
+  programs.kitty = {
+    enable = true;
+    font = {
+      name = "FiraMono Nerd Font";
+      size = 10;
+    };
+    theme = "Tokyo Night Moon";
   };
 
   # This value determines the home Manager release that your
