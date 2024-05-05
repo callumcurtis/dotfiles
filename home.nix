@@ -16,6 +16,12 @@
 
   programs.zoxide.enable = true;
 
+  programs.eza = {
+    enable = true;
+    icons = true;
+    git = true;
+  };
+
   programs.git = {
     enable = true;
     userName = "Callum Curtis";
