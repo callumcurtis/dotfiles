@@ -6,13 +6,15 @@
 
   fonts.fontconfig.enable = true;
 
-  # Packages installed to the user profile.
   home.packages = with pkgs; [
     lunarvim
     google-chrome
-    fish
     (pkgs.nerdfonts.override { fonts = ["FiraMono"]; })
   ];
+
+  programs.fish.enable = true;
+
+  programs.zoxide.enable = true;
 
   programs.git = {
     enable = true;
