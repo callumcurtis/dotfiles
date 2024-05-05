@@ -34,6 +34,12 @@
     enable = true;
     userName = "Callum Curtis";
     userEmail = "105407637+callumcurtis@users.noreply.github.com";
+    delta = {
+      enable = true;
+      options = {
+        side-by-side = true;
+      };
+    };
   };
 
   programs.kitty = {
