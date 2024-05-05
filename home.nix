@@ -34,6 +34,9 @@
     enable = true;
     userName = "Callum Curtis";
     userEmail = "105407637+callumcurtis@users.noreply.github.com";
+    extraConfig = {
+      rerere.enabled = true;
+    };
     delta = {
       enable = true;
       options = {
