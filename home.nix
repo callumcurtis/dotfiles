@@ -9,7 +9,7 @@
   # Packages installed to the user profile.
   home.packages = with pkgs; [
     lunarvim
-    firefox
+    google-chrome
     fish
     (pkgs.nerdfonts.override { fonts = ["FiraMono"]; })
   ];
