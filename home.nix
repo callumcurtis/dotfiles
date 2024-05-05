@@ -6,6 +6,14 @@
 
   fonts.fontconfig.enable = true;
 
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      document-font-name = "Liberation Sans 10";
+      font-name = "Liberation Sans 10";
+      monospace-font-name = "Liberation Mono 9";
+   };
+  };
+
   home.packages = with pkgs; [
     lunarvim
     google-chrome
