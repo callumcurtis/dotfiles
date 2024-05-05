@@ -36,6 +36,7 @@
     userEmail = "105407637+callumcurtis@users.noreply.github.com";
     extraConfig = {
       rerere.enabled = true;
+      init.defaultBranch = "main";
     };
     delta = {
       enable = true;
