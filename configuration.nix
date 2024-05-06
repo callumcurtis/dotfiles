@@ -4,6 +4,9 @@
 
 { pkgs, ... }:
 
+let
+  overlays = import ./overlays;
+in
 {
   imports =
     [
@@ -11,9 +14,21 @@
       ./ulx-configuration.nix
     ];
 
+  nixpkgs.overlays = [
+    overlays.sleek-grub-theme
+  ];
+ 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    grub = {
+      enable = true;
+      device = "nodev";
+      efiSupport = true;
+      useOSProber = true;
+      theme = pkgs.sleek-grub-theme;
+    };
+  };
 
   networking.hostName = "mist"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
