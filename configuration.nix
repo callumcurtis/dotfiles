@@ -4,9 +4,6 @@
 
 { pkgs, ... }:
 
-let
-  overlays = import ./overlays;
-in
 {
   imports =
     [
@@ -14,9 +11,7 @@ in
       ./ulx-configuration.nix
     ];
 
-  nixpkgs.overlays = [
-    overlays.sleek-grub-theme
-  ];
+  nixpkgs.overlays = import ./overlays;
  
   # Bootloader.
   boot.loader = {
@@ -26,7 +21,9 @@ in
       device = "nodev";
       efiSupport = true;
       useOSProber = true;
-      theme = pkgs.sleek-grub-theme;
+      theme = pkgs.poly-dark-grub-theme;
+      font = "${pkgs.poly-dark-grub-theme}/font.otf";
+      fontSize = 48;
     };
   };
 
