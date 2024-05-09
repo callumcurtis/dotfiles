@@ -24,6 +24,15 @@
 
   programs.zoxide.enable = true;
 
+  programs.zellij = {
+    enable = true;
+    enableFishIntegration = true;
+    settings = {
+      default_shell = "fish";
+      theme = "tokyo-night-dark";
+    };
+  };
+
   programs.eza = {
     enable = true;
     icons = true;
