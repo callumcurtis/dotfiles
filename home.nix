@@ -31,6 +31,7 @@
       default_shell = "fish";
       theme = "tokyo-night-dark";
       default_layout = "compact";
+      pane_frames = false;
     };
   };
 
