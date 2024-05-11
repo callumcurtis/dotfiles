@@ -20,7 +20,12 @@
     (pkgs.nerdfonts.override { fonts = ["FiraMono"]; })
   ];
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    functions = {
+      fish_greeting = "";
+    };
+  };
 
   programs.zoxide.enable = true;
 
