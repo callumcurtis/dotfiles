@@ -95,6 +95,11 @@
   # System programs
   programs.fish.enable = true; # Enable vendor completions provided by nixpgs
 
+  # System packages
+  environment.systemPackages = with pkgs; [
+    xclip
+  ];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
