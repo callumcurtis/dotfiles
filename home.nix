@@ -33,7 +33,7 @@
     enable = true;
     enableFishIntegration = true;
     settings = {
-      default_shell = "fish";
+      default_shell = "${pkgs.fish}/bin/fish";
       theme = "tokyo-night-dark";
       default_layout = "compact";
       pane_frames = false;
@@ -70,7 +70,7 @@
     };
     theme = "Tokyo Night Moon";
     settings = {
-      shell = "fish";
+      shell = "${pkgs.fish}/bin/fish";
     };
   };
 
