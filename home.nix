@@ -1,9 +1,6 @@
 { pkgs, ... }:
 
 {
-  home.username = "callumcurtis";
-  home.homeDirectory = "/home/callumcurtis";
-
   fonts.fontconfig.enable = true;
 
   dconf.settings = {
