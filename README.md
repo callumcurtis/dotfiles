@@ -14,7 +14,7 @@ NixOS and Home Manager allow me to declaratively configure my machines - enablin
 - [ ] modularize the system (nixos) and user (home manager) configurations
 - [ ] experiment with creating development shells for projects using [nix-shell](https://nixos.org/manual/nix/stable/command-ref/nix-shell)
 - [ ] [nix-ld](https://github.com/Mic92/nix-ld): un-nix-like, but may simplify running some binaries
-- [ ] [starship](https://github.com/starship/starship): shell prompt
+- [x] [starship](https://github.com/starship/starship): shell prompt
 
 ### SHOULD
 

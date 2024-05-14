@@ -29,6 +29,8 @@
 
   programs.zoxide.enable = true;
 
+  programs.starship.enable = true;
+
   programs.zellij = {
     enable = true;
     enableFishIntegration = true;
