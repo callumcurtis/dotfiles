@@ -94,6 +94,7 @@
 
   # System programs
   programs.fish.enable = true; # Enable vendor completions provided by nixpgs
+  programs.nix-ld.enable = true; # Enable running unpatched binaries (simplifies using pip and other package managers)
 
   # System packages
   environment.systemPackages = with pkgs; [
