@@ -11,7 +11,9 @@
       ./ulx-configuration.nix
     ];
 
-  nixpkgs.overlays = import ./overlays;
+  nixpkgs.overlays = with import ./overlays; [
+    poly-dark-grub-theme
+  ];
  
   # Bootloader.
   boot.loader = {
