@@ -1,0 +1,3 @@
+{
+  ultralightx = import ./ultralightx.nix;
+}

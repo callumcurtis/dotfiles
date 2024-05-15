@@ -5,11 +5,9 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./devices/ulx-configuration.nix
-    ];
+  imports = [ ./hardware-configuration.nix ] ++ (with import ./devices; [
+    ultralightx
+  ]);
 
   nixpkgs.overlays = with import ./overlays; [
     poly-dark-grub-theme
