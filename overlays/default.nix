@@ -1,6 +1,4 @@
 {
-  poly-dark-grub-theme = (final: prev: {
-    poly-dark-grub-theme = final.callPackage ../derivations/poly-dark-grub-theme.nix {};
-  });
+  poly-dark-grub-theme = import ./poly-dark-grub-theme.nix; 
 }
 
