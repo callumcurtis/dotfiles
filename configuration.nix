@@ -8,7 +8,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./ulx-configuration.nix
+      ./devices/ulx-configuration.nix
     ];
 
   nixpkgs.overlays = with import ./overlays; [
