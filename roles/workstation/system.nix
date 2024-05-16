@@ -20,6 +20,10 @@
     };
   };
 
+  # Set global Home Manager settings.
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary

@@ -20,10 +20,6 @@ in
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
 
-  # Set global Home Manager settings.
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.callumcurtis = {
     isNormalUser = true;
