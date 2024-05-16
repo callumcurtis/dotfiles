@@ -16,7 +16,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.callumcurtis = import ./home.nix;
+            home-manager.users.callumcurtis = (import ./roles/workstation).user;
           }
       ];
     };
