@@ -1,13 +1,13 @@
 { ... }:
 
 let
-  workstation = import ./roles/workstation;
+  workstation = import ../../roles/workstation;
 in
 {
   imports = [ 
-    ./hardware-configuration.nix
+    ./hardware.nix
     workstation.system
-  ] ++ (with import ./devices; [
+  ] ++ (with import ../../devices; [
     ultralightx
   ]);
 
