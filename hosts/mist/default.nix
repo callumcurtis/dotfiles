@@ -20,12 +20,17 @@ in
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
 
+  # Set global Home Manager settings.
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.callumcurtis = {
     isNormalUser = true;
     description = "Callum Curtis";
     extraGroups = [ "networkmanager" "wheel" ];
   };
+  home-manager.users.callumcurtis = workstation.user;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
