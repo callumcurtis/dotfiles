@@ -1,14 +1,14 @@
 let
-  workstation = import ../../roles/workstation;
+  callumcurtis = "callumcurtis";
 in
 {
   imports = [
     ./hardware.nix
-    workstation.system
+    ../../roles/workstation
     ../../devices
   ];
 
-  callumcurtis.devices.ultralightx.enable = true;
+  dotfiles.devices.ultralightx.enable = true;
 
   networking.hostName = "mist"; # Define your hostname.
 
@@ -20,12 +20,15 @@ in
   i18n.defaultLocale = "en_CA.UTF-8";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.callumcurtis = {
+  users.users.${callumcurtis} = {
     isNormalUser = true;
     description = "Callum Curtis";
     extraGroups = [ "networkmanager" "wheel" ];
   };
-  home-manager.users.callumcurtis = workstation.user;
+
+  dotfiles.roles.workstation.users = [
+    callumcurtis
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
