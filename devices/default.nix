@@ -1,3 +1,5 @@
 {
-  ultralightx = import ./ultralightx.nix;
+  imports = [
+    ./ultralightx.nix
+  ];
 }

@@ -5,9 +5,10 @@ in
   imports = [
     ./hardware.nix
     workstation.system
-  ] ++ (with import ../../devices; [
-    ultralightx
-  ]);
+    ../../devices
+  ];
+
+  callumcurtis.devices.ultralightx.enable = true;
 
   networking.hostName = "mist"; # Define your hostname.
 
