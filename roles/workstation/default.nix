@@ -94,10 +94,10 @@ let
 in
 {
   options.dotfiles.roles.workstation.users = lib.mkOption {
-    type = lib.types.nonEmptyListOf lib.types.nonEmptyStr;
+    type = lib.types.listOf lib.types.nonEmptyStr;
   };
 
-  config = {
+  config = lib.mkIf (config.dotfiles.roles.workstation.users != []) {
     home-manager.users = builtins.listToAttrs (builtins.map (user: { name = user; value = hm; }) config.dotfiles.roles.workstation.users);
 
     # Apply selected overlays to nixpkgs.

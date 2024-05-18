@@ -3,7 +3,7 @@ let
 in
 {
   imports = [
-    ../../roles/workstation
+    ../../roles
     ../../devices
   ];
 
