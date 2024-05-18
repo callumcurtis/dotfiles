@@ -6,6 +6,8 @@ nixpkgs.lib.nixosSystem {
     home-manager.nixosModules.home-manager
     ./system.nix
     ./hardware.nix
+    ../../roles
+    ../../devices
     {
       _module.args.dotfiles = {
         lib = (import ../../lib) nixpkgs;

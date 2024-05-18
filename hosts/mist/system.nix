@@ -4,11 +4,6 @@ let
   callumcurtis = "callumcurtis";
 in
 {
-  imports = [
-    ../../roles
-    ../../devices
-  ];
-
   dotfiles.devices.ultralightx.enable = true;
 
   networking.hostName = "mist";
