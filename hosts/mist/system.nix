@@ -9,7 +9,7 @@ in
 
   dotfiles.devices.ultralightx.enable = true;
 
-  networking.hostName = "mist"; # Define your hostname.
+  networking.hostName = "mist";
 
   # Set your time zone.
   time.timeZone = "Canada/Eastern";
