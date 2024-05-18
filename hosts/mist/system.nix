@@ -1,4 +1,4 @@
-{ config, ... }:
+{ dotfiles, ... }:
 
 let
   callumcurtis = "callumcurtis";
@@ -7,7 +7,6 @@ in
   imports = [
     ../../roles
     ../../devices
-    ../../constants
   ];
 
   dotfiles.devices.ultralightx.enable = true;
@@ -24,7 +23,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${callumcurtis} = {
     isNormalUser = true;
-    description = config.dotfiles.constants.name.full;
+    description = dotfiles.constants.name.full;
     extraGroups = [ "networkmanager" "wheel" ];
   };
 

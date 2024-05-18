@@ -6,7 +6,12 @@ nixpkgs.lib.nixosSystem {
     home-manager.nixosModules.home-manager
     ./system.nix
     ./hardware.nix
-    { _module.args.dotfiles.lib = (import ../../lib) nixpkgs; }
+    {
+      _module.args.dotfiles = {
+        lib = (import ../../lib) nixpkgs;
+        constants = (import ../../constants) nixpkgs;
+      };
+    }
   ];
 }
 

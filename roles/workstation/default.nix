@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, dotfiles, ... }:
 
 let
   hm = {
@@ -48,8 +48,8 @@ let
 
     programs.git = {
       enable = true;
-      userName = config.dotfiles.constants.name.full;
-      userEmail = config.dotfiles.constants.email.github.noreply;
+      userName = dotfiles.constants.name.full;
+      userEmail = dotfiles.constants.email.github.noreply;
       extraConfig = {
         rerere.enabled = true;
         init.defaultBranch = "main";
