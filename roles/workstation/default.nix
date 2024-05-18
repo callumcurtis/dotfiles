@@ -92,11 +92,22 @@ let
     programs.home-manager.enable = true;
   };
 
-  userOptions = { config, ... }: {
+  userOptions = { ... }: {
     options = {
       enable = lib.mkEnableOption "workstation user";
     };
   };
+
+  enabledUsers = (
+    builtins.listToAttrs (
+      builtins.filter
+        (pair: pair.value.enable)
+        (builtins.map
+          (user: { name = user; value = config.dotfiles.roles.workstation.users.${user}; })
+          (builtins.attrNames config.dotfiles.roles.workstation.users)
+        )
+    )
+  );
 in
 {
   options.dotfiles.roles.workstation.users = lib.mkOption {
@@ -104,8 +115,8 @@ in
     type = lib.types.attrsOf (lib.types.submodule userOptions);
   };
 
-  config = lib.mkIf (config.dotfiles.roles.workstation.users != {}) {
-    home-manager.users = builtins.mapAttrs (user: options: lib.mkIf options.enable hm) config.dotfiles.roles.workstation.users;
+  config = lib.mkIf (enabledUsers != {}) {
+    home-manager.users = builtins.mapAttrs (user: options: hm) enabledUsers;
 
     # Apply selected overlays to nixpkgs.
     nixpkgs.overlays = with import ../../overlays; [
