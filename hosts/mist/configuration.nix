@@ -3,7 +3,6 @@ let
 in
 {
   imports = [
-    ./hardware.nix
     ../../roles/workstation
     ../../devices
   ];

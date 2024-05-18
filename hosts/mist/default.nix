@@ -5,6 +5,7 @@ nixpkgs.lib.nixosSystem {
   modules = [
     home-manager.nixosModules.home-manager
     ./configuration.nix
+    ./hardware.nix
   ];
 }
 
