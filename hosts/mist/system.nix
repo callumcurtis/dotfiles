@@ -8,6 +8,7 @@ in
     ../../roles
     ../../devices
     ../../constants
+    ../../lib
   ];
 
   dotfiles.devices.ultralightx.enable = true;
