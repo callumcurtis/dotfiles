@@ -25,9 +25,7 @@ in
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  dotfiles.roles.workstation.users = [
-    callumcurtis
-  ];
+  dotfiles.roles.workstation.users.${callumcurtis}.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

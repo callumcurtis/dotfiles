@@ -91,14 +91,21 @@ let
     # Let home Manager install and manage itself.
     programs.home-manager.enable = true;
   };
+
+  userOptions = { config, ... }: {
+    options = {
+      enable = lib.mkEnableOption "workstation user";
+    };
+  };
 in
 {
   options.dotfiles.roles.workstation.users = lib.mkOption {
-    type = lib.types.listOf lib.types.nonEmptyStr;
+    default = {};
+    type = lib.types.attrsOf (lib.types.submodule userOptions);
   };
 
-  config = lib.mkIf (config.dotfiles.roles.workstation.users != []) {
-    home-manager.users = builtins.listToAttrs (builtins.map (user: { name = user; value = hm; }) config.dotfiles.roles.workstation.users);
+  config = lib.mkIf (config.dotfiles.roles.workstation.users != {}) {
+    home-manager.users = builtins.mapAttrs (user: options: lib.mkIf options.enable hm) config.dotfiles.roles.workstation.users;
 
     # Apply selected overlays to nixpkgs.
     nixpkgs.overlays = with import ../../overlays; [
