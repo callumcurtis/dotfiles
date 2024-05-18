@@ -48,8 +48,8 @@ let
 
     programs.git = {
       enable = true;
-      userName = "Callum Curtis";
-      userEmail = "105407637+callumcurtis@users.noreply.github.com";
+      userName = config.dotfiles.constants.name.full;
+      userEmail = config.dotfiles.constants.email.github.noreply;
       extraConfig = {
         rerere.enabled = true;
         init.defaultBranch = "main";
