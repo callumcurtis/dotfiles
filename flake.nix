@@ -7,10 +7,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, ... }@inputs: {
-    nixosConfigurations.mist = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = (import ./hosts/mist) inputs;
-    };
+  outputs = { ... }@inputs: {
+    nixosConfigurations.mist = (import ./hosts/mist) inputs;
   };
 }
+
