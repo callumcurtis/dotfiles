@@ -1,4 +1,4 @@
-{ dotfiles, ... }:
+{ config, ... }:
 
 let
   callumcurtis = "callumcurtis";
@@ -18,7 +18,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${callumcurtis} = {
     isNormalUser = true;
-    description = dotfiles.constants.name.full;
+    description = config.dotfiles.constants.name.full;
     extraGroups = [ "networkmanager" "wheel" ];
   };
 

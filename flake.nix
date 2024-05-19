@@ -9,11 +9,8 @@
 
   outputs = { nixpkgs, ... }@inputs: let
     hosts = import ./hosts;
-    arg = inputs // {
-      dotfiles.constants = (import ./constants) nixpkgs;
-    };
   in {
-    nixosConfigurations.mist = hosts.mist arg;
+    nixosConfigurations.mist = hosts.mist inputs;
   };
 }
 
