@@ -12,6 +12,7 @@
   config = lib.mkIf (config.dotfiles.system.roles.workstation.enable) {
 
     dotfiles.features.networking.enable = true;
+    dotfiles.features.printing.enable = true;
     dotfiles.features.fish.enable = true;
 
     # Apply selected overlays to nixpkgs.
@@ -50,10 +51,7 @@
     services.xserver = {
       layout = "us";
       xkbVariant = "";
-    };
-
-    # Enable CUPS to print documents.
-    services.printing.enable = true;
+    };    
 
     # Enable sound with pipewire.
     sound.enable = true;
