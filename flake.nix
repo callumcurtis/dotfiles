@@ -7,10 +7,13 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { ... }@inputs: let
+  outputs = { nixpkgs, ... }@inputs: let
     hosts = import ./hosts;
+    arg = inputs // {
+      dotfiles.constants = (import ./constants) nixpkgs;
+    };
   in {
-    nixosConfigurations.mist = hosts.mist inputs;
+    nixosConfigurations.mist = hosts.mist arg;
   };
 }
 

@@ -1,19 +1,14 @@
-{ nixpkgs, home-manager, ... }:
+{ nixpkgs, home-manager, dotfiles, ... }:
 
 nixpkgs.lib.nixosSystem {
   system = "x86_64-linux";
+  specialArgs = { inherit dotfiles; };
   modules = [
     home-manager.nixosModules.home-manager
     ./system.nix
     ./hardware.nix
     ../../roles
     ../../devices
-    {
-      _module.args.dotfiles = {
-        lib = (import ../../lib) nixpkgs;
-        constants = (import ../../constants) nixpkgs;
-      };
-    }
   ];
 }
 
