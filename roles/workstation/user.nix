@@ -5,6 +5,7 @@ hm = {
 
     imports = [
       ../../features/user.nix
+      ../../lib
       ../../constants
     ];
 
