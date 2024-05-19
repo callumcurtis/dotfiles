@@ -5,6 +5,7 @@ hm = {
 
     imports = [
       ../../features/user.nix
+      ../../constants
     ];
 
     fonts.fontconfig.enable = true;
@@ -46,20 +47,10 @@ hm = {
       git = true;
     };
 
-    programs.git = {
+    dotfiles.features.git = {
       enable = true;
-      userName = config.dotfiles.constants.name.full;
-      userEmail = config.dotfiles.constants.email.github.noreply;
-      extraConfig = {
-        rerere.enabled = true;
-        init.defaultBranch = "main";
-      };
-      delta = {
-        enable = true;
-        options = {
-          side-by-side = true;
-        };
-      };
+      user.name = config.dotfiles.constants.name.full;
+      user.email = config.dotfiles.constants.email.github.noreply;
     };
 
     programs.kitty = {

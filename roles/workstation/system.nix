@@ -3,6 +3,7 @@
 {
   imports = [
     ../../features/system.nix
+    ../../constants
   ];
 
   options.dotfiles.system.roles.workstation.enable = lib.mkEnableOption "workstation role";

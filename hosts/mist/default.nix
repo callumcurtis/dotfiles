@@ -6,9 +6,6 @@ nixpkgs.lib.nixosSystem {
     home-manager.nixosModules.home-manager
     ./system.nix
     ./hardware.nix
-    ../../roles
-    ../../devices
-    ../../constants
   ];
 }
 
