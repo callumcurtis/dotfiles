@@ -11,6 +11,7 @@
 
   config = lib.mkIf (config.dotfiles.system.roles.workstation.enable) {
 
+    dotfiles.features.networking.enable = true;
     dotfiles.features.fish.enable = true;
 
     # Apply selected overlays to nixpkgs.
@@ -35,15 +36,6 @@
     # Set global Home Manager settings.
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
-
-    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-    # Configure network proxy if necessary
-    # networking.proxy.default = "http://user:password@proxy:port/";
-    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-    # Enable networking
-    networking.networkmanager.enable = true;
 
     # Enable the X11 windowing system.
     services.xserver.enable = true;
@@ -104,12 +96,6 @@
 
     # Enable the OpenSSH daemon.
     services.openssh.enable = true;
-
-    # Open ports in the firewall.
-    # networking.firewall.allowedTCPPorts = [ ... ];
-    # networking.firewall.allowedUDPPorts = [ ... ];
-    # Or disable the firewall altogether.
-    # networking.firewall.enable = false;
 
     # Enable flakes.
     nix.settings.experimental-features = ["nix-command" "flakes"];
