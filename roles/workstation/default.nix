@@ -2,6 +2,11 @@
 
 let
   hm = {
+
+    imports = [
+      ../../features/user.nix
+    ];
+
     fonts.fontconfig.enable = true;
 
     dconf.settings = {
@@ -18,12 +23,7 @@ let
       (pkgs.nerdfonts.override { fonts = ["FiraMono"]; })
     ];
 
-    programs.fish = {
-      enable = true;
-      functions = {
-        fish_greeting = "";
-      };
-    };
+    dotfiles.features.fish.enable = true;
 
     programs.zoxide.enable = true;
 
@@ -110,6 +110,10 @@ let
   );
 in
 {
+  imports = [
+    ../../features/system.nix
+  ];
+
   options.dotfiles.roles.workstation.users = lib.mkOption {
     default = {};
     type = lib.types.attrsOf (lib.types.submodule userOptions);
@@ -117,6 +121,8 @@ in
 
   config = lib.mkIf (enabledUsers != {}) {
     home-manager.users = builtins.mapAttrs (user: options: hm) enabledUsers;
+
+    dotfiles.features.fish.enable = true;
 
     # Apply selected overlays to nixpkgs.
     nixpkgs.overlays = with import ../../overlays; [
@@ -192,7 +198,6 @@ in
     nixpkgs.config.allowUnfree = true;
 
     # System programs
-    programs.fish.enable = true; # Enable vendor completions provided by nixpgs
     programs.nix-ld.enable = true; # Enable running unpatched binaries (simplifies using pip and other package managers)
 
     # System packages
