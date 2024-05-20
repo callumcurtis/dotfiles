@@ -9,6 +9,7 @@
     ./time/system.nix
     ./multi-boot/system.nix
     ./internationalization/system.nix
+    ./unpatched-binaries/system.nix
   ];
 }
 

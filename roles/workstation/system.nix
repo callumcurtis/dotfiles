@@ -15,6 +15,7 @@
     dotfiles.features.audio.enable = true;
     dotfiles.features.flakes.enable = true;
     dotfiles.features.ssh.enable = true;
+    dotfiles.features.unpatched-binaries.enable = true;
     dotfiles.features.fish.enable = true;
 
     # Apply selected overlays to nixpkgs.
@@ -60,9 +61,6 @@
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
-
-    # System programs
-    programs.nix-ld.enable = true; # Enable running unpatched binaries (simplifies using pip and other package managers)
 
     # System packages
     environment.systemPackages = with pkgs; [
