@@ -14,12 +14,11 @@ in
     enable = true;
     timeZone = config.dotfiles.constants.timeZone;
   };
+  dotfiles.features.multi-boot.windows.enable = true;
 
   dotfiles.devices.ultralightx.enable = true;
 
   networking.hostName = "mist";
-
-  time.hardwareClockInLocalTime = true; # Ensures compatibility with Windows in dual-boot
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";

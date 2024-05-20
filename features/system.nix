@@ -7,6 +7,7 @@
     ./flakes/system.nix
     ./ssh/system.nix
     ./time/system.nix
+    ./multi-boot/system.nix
   ];
 }
 
