@@ -8,6 +8,7 @@
     ./ssh/system.nix
     ./time/system.nix
     ./multi-boot/system.nix
+    ./internationalization/system.nix
   ];
 }
 

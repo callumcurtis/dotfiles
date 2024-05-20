@@ -14,14 +14,15 @@ in
     enable = true;
     timeZone = config.dotfiles.constants.timeZone;
   };
+  dotfiles.features.internationalization = {
+    enable = true;
+    locale = config.dotfiles.constants.locale;
+  };
   dotfiles.features.multi-boot.windows.enable = true;
 
   dotfiles.devices.ultralightx.enable = true;
 
   networking.hostName = "mist";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_CA.UTF-8";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${callumcurtis} = {
