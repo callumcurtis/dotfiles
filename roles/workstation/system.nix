@@ -15,6 +15,7 @@
     dotfiles.features.printing.enable = true;
     dotfiles.features.audio.enable = true;
     dotfiles.features.flakes.enable = true;
+    dotfiles.features.ssh.enable = true;
     dotfiles.features.fish.enable = true;
 
     # Apply selected overlays to nixpkgs.
@@ -68,17 +69,6 @@
     environment.systemPackages = with pkgs; [
       xclip
     ];
-
-    # Some programs need SUID wrappers, can be configured further or are
-    # started in user sessions.
-    # programs.mtr.enable = true;
-    # programs.gnupg.agent = {
-    #   enable = true;
-    #   enableSSHSupport = true;
-    # };
-
-    # Enable the OpenSSH daemon.
-    services.openssh.enable = true;
   };
 }
 

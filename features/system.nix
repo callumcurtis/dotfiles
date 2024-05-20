@@ -5,6 +5,7 @@
     ./printing/system.nix
     ./audio/system.nix
     ./flakes/system.nix
+    ./ssh/system.nix
   ];
 }
 
