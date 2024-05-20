@@ -6,6 +6,7 @@
     ./audio/system.nix
     ./flakes/system.nix
     ./ssh/system.nix
+    ./time/system.nix
   ];
 }
 

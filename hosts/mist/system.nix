@@ -5,16 +5,20 @@ let
 in
 {
   imports = [
+    ../../features/system.nix
     ../../devices
     ../../roles
   ];
+
+  dotfiles.features.time = {
+    enable = true;
+    timeZone = config.dotfiles.constants.timeZone;
+  };
 
   dotfiles.devices.ultralightx.enable = true;
 
   networking.hostName = "mist";
 
-  # Set your time zone.
-  time.timeZone = "Canada/Eastern";
   time.hardwareClockInLocalTime = true; # Ensures compatibility with Windows in dual-boot
 
   # Select internationalisation properties.

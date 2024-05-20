@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ../../features/system.nix
     ../../lib
     ../../constants
   ];
