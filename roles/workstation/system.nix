@@ -14,6 +14,7 @@
     dotfiles.features.networking.enable = true;
     dotfiles.features.printing.enable = true;
     dotfiles.features.audio.enable = true;
+    dotfiles.features.flakes.enable = true;
     dotfiles.features.fish.enable = true;
 
     # Apply selected overlays to nixpkgs.
@@ -78,9 +79,6 @@
 
     # Enable the OpenSSH daemon.
     services.openssh.enable = true;
-
-    # Enable flakes.
-    nix.settings.experimental-features = ["nix-command" "flakes"];
   };
 }
 
