@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ../../lib
     ../../constants
   ];
 

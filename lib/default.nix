@@ -1,31 +1,22 @@
-{ lib, ... }:
+{ nixpkgs, ... }:
 
-let
-  mkFunctionOption = { function, returnType }: lib.mkOption {
-    type = lib.types.functionTo returnType;
-    default = function;
+{
+  mkConstantOption = value: nixpkgs.lib.mkOption {
+    type = nixpkgs.lib.types.oneOf [ nixpkgs.lib.types.str nixpkgs.lib.types.int ];
+    default = value;
     readOnly = true;
   };
-in {
-  options.dotfiles.lib = rec {
 
-    types = {
-      option = lib.mkOptionType {
-        name = "option";
-        description = "option";
-        descriptionClass = "noun";
-        check = value: lib.isOption value;
-      };
-    };
-
-    mkConstantOption = mkFunctionOption {
-      function = value: lib.mkOption {
-        type = lib.types.oneOf [ lib.types.str lib.types.int ];
-        default = value;
-        readOnly = true;
-      };
-      returnType = types.option;
-    };
-  };
+  findMatchingFilesInDirectChildDirectories = parent: filename: builtins.attrValues (
+    nixpkgs.lib.filterAttrs
+      (n: v: builtins.pathExists v)
+      (builtins.mapAttrs
+        (n: v: /${parent}/${n}/${filename})
+        (nixpkgs.lib.filterAttrs
+          (n: v: nixpkgs.lib.pathIsDirectory /${parent}/${n})
+          (builtins.readDir parent)
+        )
+      )
+  );
 }
 

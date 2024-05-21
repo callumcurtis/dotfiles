@@ -1,7 +1,6 @@
+{ dotfiles, ... }:
+
 {
-  imports = [
-    ./fish/user.nix
-    ./git/user.nix
-  ];
+  imports = dotfiles.lib.findMatchingFilesInDirectChildDirectories ./. "user.nix";
 }
 
