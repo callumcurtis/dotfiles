@@ -19,12 +19,15 @@ hm = {
     };
 
     home.packages = with pkgs; [
-      lunarvim
       google-chrome
       (pkgs.nerdfonts.override { fonts = ["FiraMono"]; })
     ];
 
     dotfiles.features.fish.enable = true;
+    dotfiles.features.lunarvim = {
+      enable = true;
+      asDefaultEditor = true;
+    };
 
     programs.zoxide.enable = true;
 
@@ -63,10 +66,6 @@ hm = {
       settings = {
         shell = "${pkgs.fish}/bin/fish";
       };
-    };
-
-    home.sessionVariables = {
-      EDITOR = "${pkgs.lunarvim}/bin/lvim";
     };
 
     # This value determines the home Manager release that your
