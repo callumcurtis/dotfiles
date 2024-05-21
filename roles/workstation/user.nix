@@ -19,8 +19,7 @@ hm = {
     };
 
     home.packages = with pkgs; [
-      google-chrome
-      (pkgs.nerdfonts.override { fonts = ["FiraMono"]; })
+      (nerdfonts.override { fonts = ["FiraMono"]; })
     ];
 
     dotfiles.features.fish.enable = true;
@@ -28,6 +27,7 @@ hm = {
       enable = true;
       asDefaultEditor = true;
     };
+    dotfiles.features.google-chrome.enable = true;
 
     programs.zoxide.enable = true;
 
