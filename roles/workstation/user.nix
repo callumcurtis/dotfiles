@@ -8,16 +8,7 @@ hm = {
       ../../constants
     ];
 
-    fonts.fontconfig.enable = true;
-
-    dconf.settings = {
-      "org/gnome/desktop/interface" = {
-        document-font-name = "Liberation Sans 10";
-        font-name = "Liberation Sans 10";
-        monospace-font-name = "Liberation Mono 9";
-     };
-    };
-
+    dotfiles.features.gnome.enable = true;
     dotfiles.features.home-manager.enable = true;
     dotfiles.features.kitty = {
       enable = true;
