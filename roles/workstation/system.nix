@@ -9,6 +9,7 @@
 
   config = lib.mkIf (config.dotfiles.system.roles.workstation.enable) {
 
+    dotfiles.features.grub.enable = true;
     dotfiles.features.networking.enable = true;
     dotfiles.features.printing.enable = true;
     dotfiles.features.audio.enable = true;
@@ -16,25 +17,6 @@
     dotfiles.features.ssh.enable = true;
     dotfiles.features.unpatched-binaries.enable = true;
     dotfiles.features.fish.enable = true;
-
-    # Apply selected overlays to nixpkgs.
-    nixpkgs.overlays = with import ../../overlays; [
-      poly-dark-grub-theme
-    ];
-
-    # Configure bootloader.
-    boot.loader = {
-      efi.canTouchEfiVariables = true;
-      grub = {
-        enable = true;
-        device = "nodev";
-        efiSupport = true;
-        useOSProber = true;
-        theme = pkgs.poly-dark-grub-theme;
-        font = "${pkgs.poly-dark-grub-theme}/font.otf";
-        fontSize = 48;
-      };
-    };
 
     # Set global Home Manager settings.
     home-manager.useGlobalPkgs = true;
