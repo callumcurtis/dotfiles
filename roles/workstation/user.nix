@@ -32,14 +32,9 @@ hm = {
       asDefaultEditor = true;
     };
     dotfiles.features.zoxide.enable = true;
+    dotfiles.features.eza.enable = true;
     dotfiles.features.starship.enable = true;
     dotfiles.features.google-chrome.enable = true;
-
-    programs.eza = {
-      enable = true;
-      icons = true;
-      git = true;
-    };
 
     dotfiles.features.git = {
       enable = true;
