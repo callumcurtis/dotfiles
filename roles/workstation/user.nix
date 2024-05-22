@@ -28,9 +28,8 @@ hm = {
       asDefaultEditor = true;
     };
     dotfiles.features.zoxide.enable = true;
+    dotfiles.features.starship.enable = true;
     dotfiles.features.google-chrome.enable = true;
-
-    programs.starship.enable = true;
 
     programs.zellij = {
       enable = true;
