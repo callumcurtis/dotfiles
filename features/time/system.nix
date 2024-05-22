@@ -1,11 +1,9 @@
-{ config, lib, ... }:
+{ config, lib, dotfiles, ... }:
 
 {
   options.dotfiles.features.time = {
     enable = lib.mkEnableOption "time";
-    timeZone = lib.mkOption {
-      type = lib.types.str;
-    };
+    timeZone = dotfiles.lib.mkTypedOption lib.types.str;
   };
 
   config = lib.mkIf config.dotfiles.features.time.enable {

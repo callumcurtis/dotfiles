@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
 hm = {
@@ -18,10 +18,10 @@ hm = {
      };
     };
 
-    home.packages = with pkgs; [
-      (nerdfonts.override { fonts = ["FiraMono"]; })
-    ];
-
+    dotfiles.features.kitty = {
+      enable = true;
+      shell = config.dotfiles.constants.shell;
+    };
     dotfiles.features.fish.enable = true;
     dotfiles.features.zellij = {
       enable = true;
@@ -40,18 +40,6 @@ hm = {
       enable = true;
       user.name = config.dotfiles.constants.name.full;
       user.email = config.dotfiles.constants.email.github.noreply;
-    };
-
-    programs.kitty = {
-      enable = true;
-      font = {
-        name = "FiraMono Nerd Font";
-        size = 10;
-      };
-      theme = "Tokyo Night Moon";
-      settings = {
-        shell = "${pkgs.fish}/bin/fish";
-      };
     };
 
     # This value determines the home Manager release that your

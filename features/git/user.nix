@@ -1,15 +1,11 @@
-{ config, lib, ... }:
+{ config, lib, dotfiles, ... }:
 
 {
   options.dotfiles.features.git = {
     enable = lib.mkEnableOption "git";
     user = {
-      name = lib.mkOption {
-        type = lib.types.str;
-      };
-      email = lib.mkOption {
-        type = lib.types.str;
-      };
+      name = dotfiles.lib.mkTypedOption lib.types.str;
+      email = dotfiles.lib.mkTypedOption lib.types.str;
     };
   };
 

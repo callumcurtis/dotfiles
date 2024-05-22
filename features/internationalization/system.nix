@@ -1,11 +1,9 @@
-{ config, lib, ... }:
+{ config, lib, dotfiles, ... }:
 
 {
   options.dotfiles.features.internationalization = {
     enable = lib.mkEnableOption "internationalization";
-    locale = lib.mkOption {
-      type = lib.types.str;
-    };
+    locale = dotfiles.lib.mkTypedOption lib.types.str;
   };
 
   config = lib.mkIf config.dotfiles.features.internationalization.enable {

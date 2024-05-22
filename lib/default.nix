@@ -2,23 +2,18 @@
 
 {
   mkConstantOption = value: nixpkgs.lib.mkOption {
-    type = nixpkgs.lib.types.oneOf [ nixpkgs.lib.types.str nixpkgs.lib.types.int ];
+    type = nixpkgs.lib.types.oneOf [ nixpkgs.lib.types.str nixpkgs.lib.types.int nixpkgs.lib.types.path ];
     default = value;
     readOnly = true;
   };
 
-  mkBoolOptionWithDefaultTrue = name: nixpkgs.lib.mkOption {
-    default = true;
-    example = false;
-    description = "Whether to enable ${name}.";
-    type = nixpkgs.lib.types.bool;
+  mkTypedOptionWithDefault = type: default: nixpkgs.lib.mkOption {
+    type = type;
+    default = default;
   };
 
-  mkBoolOptionWithDefaultFalse = name: nixpkgs.lib.mkOption {
-    default = false;
-    example = true;
-    description = "Whether to enable ${name}.";
-    type = nixpkgs.lib.types.bool;
+  mkTypedOption = type: nixpkgs.lib.mkOption {
+    type = type;
   };
 
   findMatchingFilesInDirectChildDirectories = parent: filename: builtins.attrValues (

@@ -3,10 +3,8 @@
 {
   options.dotfiles.features.zellij = {
     enable = lib.mkEnableOption "zellij";
-    shell = lib.mkOption {
-      type = lib.types.str;
-    };
-    autoStartIn.fish = dotfiles.lib.mkBoolOptionWithDefaultTrue "zellij auto-start in fish";
+    shell = dotfiles.lib.mkTypedOption lib.types.path;
+    autoStartIn.fish = dotfiles.lib.mkTypedOptionWithDefault lib.types.bool true;
   };
 
   config = {

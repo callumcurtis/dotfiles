@@ -3,7 +3,7 @@
 {
   options.dotfiles.features.lunarvim = {
     enable = lib.mkEnableOption "lunarvim";
-    asDefaultEditor = dotfiles.lib.mkBoolOptionWithDefaultFalse "lunarvim as default editor";
+    asDefaultEditor = dotfiles.lib.mkTypedOptionWithDefault lib.types.bool false;
   };
 
   config = lib.mkIf config.dotfiles.features.lunarvim.enable {
