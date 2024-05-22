@@ -7,6 +7,20 @@
     readOnly = true;
   };
 
+  mkBoolOptionWithDefaultTrue = name: nixpkgs.lib.mkOption {
+    default = true;
+    example = false;
+    description = "Whether to enable ${name}.";
+    type = nixpkgs.lib.types.bool;
+  };
+
+  mkBoolOptionWithDefaultFalse = name: nixpkgs.lib.mkOption {
+    default = false;
+    example = true;
+    description = "Whether to enable ${name}.";
+    type = nixpkgs.lib.types.bool;
+  };
+
   findMatchingFilesInDirectChildDirectories = parent: filename: builtins.attrValues (
     nixpkgs.lib.filterAttrs
       (n: v: builtins.pathExists v)

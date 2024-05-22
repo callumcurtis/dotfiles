@@ -1,9 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, dotfiles, ... }:
 
 {
   options.dotfiles.features.lunarvim = {
     enable = lib.mkEnableOption "lunarvim";
-    asDefaultEditor = lib.mkEnableOption "lunarvim as default editor";
+    asDefaultEditor = dotfiles.lib.mkBoolOptionWithDefaultFalse "lunarvim as default editor";
   };
 
   config = lib.mkIf config.dotfiles.features.lunarvim.enable {

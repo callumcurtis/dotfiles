@@ -1,11 +1,14 @@
-{ dotfiles, ... }:
+{ dotfiles, pkgs, ... }:
 
-{
+let
+  mk = dotfiles.lib.mkConstantOption;
+in {
   options.dotfiles.constants = {
-    name.full = dotfiles.lib.mkConstantOption "Callum Curtis";
-    email.github.noreply = dotfiles.lib.mkConstantOption "105407637+callumcurtis@users.noreply.github.com";
-    timeZone = dotfiles.lib.mkConstantOption "Canada/Eastern";
-    locale = dotfiles.lib.mkConstantOption "en_CA.UTF-8";
+    name.full = mk "Callum Curtis";
+    email.github.noreply = mk "105407637+callumcurtis@users.noreply.github.com";
+    timeZone = mk "Canada/Eastern";
+    locale = mk "en_CA.UTF-8";
+    shell = mk "${pkgs.fish}/bin/fish";
   };
 }
 

@@ -23,6 +23,10 @@ hm = {
     ];
 
     dotfiles.features.fish.enable = true;
+    dotfiles.features.zellij = {
+      enable = true;
+      shell = config.dotfiles.constants.shell;
+    };
     dotfiles.features.lunarvim = {
       enable = true;
       asDefaultEditor = true;
@@ -30,17 +34,6 @@ hm = {
     dotfiles.features.zoxide.enable = true;
     dotfiles.features.starship.enable = true;
     dotfiles.features.google-chrome.enable = true;
-
-    programs.zellij = {
-      enable = true;
-      enableFishIntegration = true;
-      settings = {
-        default_shell = "${pkgs.fish}/bin/fish";
-        theme = "tokyo-night-dark";
-        default_layout = "compact";
-        pane_frames = false;
-      };
-    };
 
     programs.eza = {
       enable = true;
