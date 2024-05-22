@@ -17,10 +17,7 @@
     dotfiles.features.ssh.enable = true;
     dotfiles.features.unpatched-binaries.enable = true;
     dotfiles.features.fish.enable = true;
-
-    # Set global Home Manager settings.
-    home-manager.useGlobalPkgs = true;
-    home-manager.useUserPackages = true;
+    dotfiles.features.home-manager.enable = true;
 
     # Enable the X11 windowing system.
     services.xserver.enable = true;

@@ -18,6 +18,7 @@ hm = {
      };
     };
 
+    dotfiles.features.home-manager.enable = true;
     dotfiles.features.kitty = {
       enable = true;
       shell = config.dotfiles.constants.shell;
@@ -41,19 +42,6 @@ hm = {
       user.name = config.dotfiles.constants.name.full;
       user.email = config.dotfiles.constants.email.github.noreply;
     };
-
-    # This value determines the home Manager release that your
-    # configuration is compatible with. This helps avoid breakage
-    # when a new home Manager release introduces backwards
-    # incompatible changes.
-    #
-    # You can update home Manager without changing this value. See
-    # the home Manager release notes for a list of state version
-    # changes in each release.
-    home.stateVersion = "23.11";
-
-    # Let home Manager install and manage itself.
-    programs.home-manager.enable = true;
   };
 
   enabledUsers = (
@@ -76,7 +64,7 @@ in
   };
 
   config = lib.mkIf (enabledUsers != {}) {
-    home-manager.users = lib.mkIf (enabledUsers != {}) (builtins.mapAttrs (user: options: hm) enabledUsers);
+    dotfiles.features.home-manager.users = lib.mkIf (enabledUsers != {}) (builtins.mapAttrs (user: options: hm) enabledUsers);
   };
 }
 
