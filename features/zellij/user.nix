@@ -7,9 +7,9 @@
     autoStartIn.fish = dotfiles.lib.mkTypedOptionWithDefault lib.types.bool true;
   };
 
-  config = {
+  config = lib.mkIf config.dotfiles.features.zellij.enable {
     programs.zellij = {
-      enable = config.dotfiles.features.zellij.enable;
+      enable = true;
       enableFishIntegration = config.dotfiles.features.zellij.autoStartIn.fish;
       settings = {
         default_shell = config.dotfiles.features.zellij.shell;

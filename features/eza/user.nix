@@ -3,9 +3,9 @@
 {
   options.dotfiles.features.eza.enable = lib.mkEnableOption "eza";
 
-  config = {
+  config = lib.mkIf config.dotfiles.features.eza.enable {
     programs.eza = {
-      enable = config.dotfiles.features.eza.enable;
+      enable = true;
       icons = true;
       git = true;
     };
