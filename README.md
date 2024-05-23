@@ -19,3 +19,9 @@ Afterward, you won't need to include `--flake .#<hostname>` in the `nixos-rebuil
 
 See this repo's [issues](https://github.com/callumcurtis/dotfiles/issues) for plans on improvements to the configurations.
 
+## Troubleshooting
+
+**"no space left on device"**
+
+If you get a "no space left on device" error message indicating a full boot drive when attempting to run a `nixos-rebuild switch` command, you may need to remove old/unused linux kernels from `/boot/EFI/nixos`. Make sure to leave the kernel used by the current system generation intact.
+
