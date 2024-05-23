@@ -1,15 +1,22 @@
 { config, lib, ... }:
 
 let
-hm = {
-
+  hm = {
     imports = [
       ../../features/user.nix
       ../../constants
     ];
 
-    dotfiles.features.gnome.enable = true;
+    # Meta.
     dotfiles.features.home-manager.enable = true;
+
+    # Desktop environment.
+    dotfiles.features.gnome.enable = true;
+
+    # GUI programs.
+    dotfiles.features.google-chrome.enable = true;
+
+    # Terminal configuration.
     dotfiles.features.kitty = {
       enable = true;
       shell = config.dotfiles.constants.shell;
@@ -26,8 +33,6 @@ hm = {
     dotfiles.features.zoxide.enable = true;
     dotfiles.features.eza.enable = true;
     dotfiles.features.starship.enable = true;
-    dotfiles.features.google-chrome.enable = true;
-
     dotfiles.features.git = {
       enable = true;
       user.name = config.dotfiles.constants.name.full;
