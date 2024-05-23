@@ -34,17 +34,6 @@ hm = {
       user.email = config.dotfiles.constants.email.github.noreply;
     };
   };
-
-  enabledUsers = (
-    builtins.listToAttrs (
-      builtins.filter
-        (pair: pair.value.roles.workstation.enable)
-        (builtins.map
-          (user: { name = user; value = config.dotfiles.users.${user}; })
-          (builtins.attrNames config.dotfiles.users)
-        )
-    )
-  );
 in
 {
   options.dotfiles.users = lib.mkOption {
@@ -54,8 +43,8 @@ in
     });
   };
 
-  config = lib.mkIf (enabledUsers != {}) {
-    dotfiles.features.home-manager.users = lib.mkIf (enabledUsers != {}) (builtins.mapAttrs (user: options: hm) enabledUsers);
+  config = {
+    dotfiles.features.home-manager.users = builtins.mapAttrs (user: options: lib.mkIf options.roles.workstation.enable hm) config.dotfiles.users;
   };
 }
 
