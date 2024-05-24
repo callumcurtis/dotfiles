@@ -6,6 +6,7 @@ nixpkgs.lib.nixosSystem rec {
   specialArgs = { inherit dotfiles; };
   modules = [
     home-manager.nixosModules.home-manager
+    ../common.nix
     ./system.nix
     ./hardware.nix
     # Allows use of the given arguments outside of config blocks in home-manager modules.
