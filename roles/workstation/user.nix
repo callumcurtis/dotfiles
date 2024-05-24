@@ -43,7 +43,7 @@ in
   options.dotfiles.users = lib.mkOption {
     default = {};
     type = lib.types.attrsOf (lib.types.submodule {
-      options.roles.workstation.enable = lib.mkEnableOption "workstation role";
+      options.roles.workstation.enable = lib.mkEnableOption "workstation-user-role";
     });
   };
 

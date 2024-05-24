@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 {
-  options.dotfiles.system.roles.workstation.enable = lib.mkEnableOption "workstation role";
+  options.dotfiles.system.roles.workstation.enable = lib.mkEnableOption "workstation-system-role";
 
   config = lib.mkIf (config.dotfiles.system.roles.workstation.enable) {
     dotfiles.features.gnome.enable = true;

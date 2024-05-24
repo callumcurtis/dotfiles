@@ -12,6 +12,7 @@ in
     ../../constants
   ];
 
+  # TODO: move common host configuration to shared module
   dotfiles.features.time = {
     enable = true;
     timeZone = config.dotfiles.constants.timeZone;
@@ -20,22 +21,23 @@ in
     enable = true;
     locale = config.dotfiles.constants.locale;
   };
-  dotfiles.features.multi-boot.windows.enable = true;
-
-  dotfiles.devices.ultralightx.enable = true;
 
   networking.hostName = "mist";
+  dotfiles.features.multi-boot.windows.enable = true;
+  dotfiles.devices.ultralightx.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Don't forget to set a password with ‘passwd’.
   users.users.${callumcurtis} = {
     isNormalUser = true;
     description = config.dotfiles.constants.name.full;
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
+  # Assign roles to users and the system.
   dotfiles.system.roles.workstation.enable = true;
   dotfiles.users.${callumcurtis}.roles.workstation.enable = true;
 
+  # TODO: move common host configuration to shared module
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
