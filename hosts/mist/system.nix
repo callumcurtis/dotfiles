@@ -1,6 +1,7 @@
 { config, ... }:
 
 let
+  # Assign usernames to variables to avoid typos between usages.
   callumcurtis = "callumcurtis";
 in
 {
@@ -8,6 +9,7 @@ in
     ../../features/system.nix
     ../../devices
     ../../roles
+    ../../constants
   ];
 
   dotfiles.features.time = {

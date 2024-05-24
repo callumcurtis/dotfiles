@@ -1,10 +1,6 @@
 { config, lib, ... }:
 
 {
-  imports = [
-    ../../constants
-  ];
-
   options.dotfiles.system.roles.workstation.enable = lib.mkEnableOption "workstation role";
 
   config = lib.mkIf (config.dotfiles.system.roles.workstation.enable) {

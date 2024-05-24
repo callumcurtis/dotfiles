@@ -4,7 +4,6 @@ let
   hm = {
     imports = [
       ../../features/user.nix
-      ../../constants
     ];
 
     # Meta.
