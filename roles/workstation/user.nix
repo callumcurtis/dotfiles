@@ -29,6 +29,7 @@ let
       enable = true;
       asDefaultEditor = true;
     };
+    dotfiles.features.direnv.enable = true;
     dotfiles.features.zoxide.enable = true;
     dotfiles.features.eza.enable = true;
     dotfiles.features.starship.enable = true;
