@@ -49,7 +49,9 @@ in
   };
 
   config = {
-    dotfiles.features.home-manager.users = builtins.mapAttrs (user: options: lib.mkIf options.roles.workstation.enable hm) config.dotfiles.users;
+    dotfiles.features.home-manager.users = builtins.mapAttrs
+      (user: options: lib.mkIf options.roles.workstation.enable hm)
+      (config.dotfiles.users);
   };
 }
 

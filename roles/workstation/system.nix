@@ -13,6 +13,12 @@
     dotfiles.features.ssh.enable = true;
     dotfiles.features.unpatched-binaries.enable = true;
     dotfiles.features.fish.enable = true;
+    dotfiles.features.docker = {
+      enable = true;
+      users = builtins.mapAttrs
+        (user: options: { enable = options.roles.workstation.enable; })
+        (config.dotfiles.users);
+    };
     dotfiles.features.home-manager.enable = true;
 
     # Allow unfree packages
