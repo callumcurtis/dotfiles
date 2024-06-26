@@ -11,7 +11,6 @@
     dotfiles.features.audio.enable = true;
     dotfiles.features.flakes.enable = true;
     dotfiles.features.ssh.enable = true;
-    dotfiles.features.unpatched-binaries.enable = true;
     dotfiles.features.fish.enable = true;
     dotfiles.features.docker = {
       enable = true;
