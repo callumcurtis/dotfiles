@@ -25,10 +25,12 @@ let
       enable = true;
       shell = config.dotfiles.constants.shell;
     };
+    # TODO: replace lunarvim with nixvim
     dotfiles.features.lunarvim = {
       enable = true;
       asDefaultEditor = true;
     };
+    dotfiles.features.nixvim.enable = true;
     dotfiles.features.direnv.enable = true;
     dotfiles.features.zoxide.enable = true;
     dotfiles.features.eza.enable = true;
