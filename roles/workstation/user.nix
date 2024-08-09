@@ -10,6 +10,7 @@ let
     dotfiles.features.home-manager.enable = true;
 
     # Desktop environment.
+    # TODO: the desktop environment should be selected by the system configuration
     dotfiles.features.gnome.enable = true;
 
     # GUI programs.
