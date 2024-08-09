@@ -11,6 +11,10 @@
     programs.nixvim = {
       enable = true;
 
+      globals = {
+        mapleader = " ";
+      };
+
       opts = {
         # line numbering
         relativenumber = true;
@@ -47,6 +51,42 @@
         splitright = true;
         splitbelow = true;
       };
+
+      keymaps = [
+        # search
+        {
+          mode = ["n"];
+          key = "<leader>nh";
+          action = ":nohl<CR>";
+          options.desc = "Clear search highlights";
+        }
+
+        # windows
+        {
+          mode = ["n"];
+          key = "<leader>sv";
+          action = "<C-w>v";
+          options.desc = "Split window vertically";
+        }
+        {
+          mode = ["n"];
+          key = "<leader>sh";
+          action = "<C-w>s";
+          options.desc = "Split window horizontally";
+        }
+        {
+          mode = ["n"];
+          key = "<leader>we";
+          action = "<C-w>=";
+          options.desc = "Make windows equal size";
+        }
+        {
+          mode = ["n"];
+          key = "<leader>wx";
+          action = "<cmd>close<CR>";
+          options.desc = "Close current window";
+        }
+      ];
     };
   };
 }
