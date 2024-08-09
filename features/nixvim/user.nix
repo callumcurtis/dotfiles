@@ -53,6 +53,15 @@
       };
 
       keymaps = [
+        # Conventions:
+        # - Use a prefix for command groups, such as "t" for tabs
+        # - Use standard suffixes for actions
+        #   - a for add
+        #   - d for delete
+        #   - m for move
+        #   - b for back/previous
+        #   - n for next
+
         # search
         {
           mode = ["n"];
@@ -96,9 +105,35 @@
         }
         {
           mode = ["n"];
-          key = "<leader>sx";
+          key = "<leader>sd";
           action = "<cmd>close<CR>";
           options.desc = "Close current window";
+        }
+
+        # tabs
+        {
+          mode = ["n"];
+          key = "<leader>ta";
+          action = "<cmd>tabnew<CR>";
+          options.desc = "Open new tab";
+        }
+        {
+          mode = ["n"];
+          key = "<leader>td";
+          action = "<cmd>tabclose<CR>";
+          options.desc = "Close current tab";
+        }
+        {
+          mode = ["n"];
+          key = "<leader>tn";
+          action = "<cmd>tabn<CR>";
+          options.desc = "Go to next tab";
+        }
+        {
+          mode = ["n"];
+          key = "<leader>tb";
+          action = "<cmd>tabp<CR>";
+          options.desc = "Go to previous tab";
         }
       ];
     };
