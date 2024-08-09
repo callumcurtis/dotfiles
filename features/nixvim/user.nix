@@ -61,7 +61,21 @@
           options.desc = "Clear search highlights";
         }
 
-        # windows
+        # increment/decrement
+        {
+          mode = ["n"];
+          key = "+";
+          action = "<C-a>";
+          options.desc = "Increment number";
+        }
+        {
+          mode = ["n"];
+          key = "-";
+          action = "<C-x>";
+          options.desc = "Decrement number";
+        }
+
+        # splits
         {
           mode = ["n"];
           key = "<leader>sv";
@@ -76,13 +90,13 @@
         }
         {
           mode = ["n"];
-          key = "<leader>we";
+          key = "<leader>se";
           action = "<C-w>=";
           options.desc = "Make windows equal size";
         }
         {
           mode = ["n"];
-          key = "<leader>wx";
+          key = "<leader>sx";
           action = "<cmd>close<CR>";
           options.desc = "Close current window";
         }
