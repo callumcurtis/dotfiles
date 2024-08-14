@@ -12,6 +12,7 @@
     dotfiles.features.flakes.enable = true;
     dotfiles.features.ssh.enable = true;
     dotfiles.features.fish.enable = true;
+    dotfiles.features.nixvim.enable = true;
     dotfiles.features.docker = {
       enable = true;
       users = builtins.mapAttrs
