@@ -62,6 +62,20 @@
         #   - b for back/previous
         #   - n for next
 
+        # save/quit
+        {
+          mode = ["n"];
+          key = "<leader>w";
+          action = ":w<CR>";
+          options.desc = "Write the buffer to the current file";
+        }
+        {
+          mode = ["n"];
+          key = "<leader>q";
+          action = ":q<CR>";
+          options.desc = "Quit the current window";
+        }
+
         # search
         {
           mode = ["n"];
