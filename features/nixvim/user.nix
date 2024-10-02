@@ -12,8 +12,6 @@
     programs.nixvim = {
       enable = true;
 
-      colorschemes.catppuccin.enable = true; 
-
       keymaps = [
         # Conventions:
         # - Use a prefix for command groups, such as "t" for tabs
