@@ -3,6 +3,8 @@
 {
   imports = [
     nixvim.homeManagerModules.nixvim
+    ./configuration/colorscheme.nix
+    ./configuration/globals.nix
     ./configuration/options.nix
   ];
 
