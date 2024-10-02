@@ -3,6 +3,7 @@
 {
   imports = [
     nixvim.homeManagerModules.nixvim
+    ./configuration/options.nix
   ];
 
   options.dotfiles.features.nixvim.enable = lib.mkEnableOption "nixvim";
@@ -15,46 +16,7 @@
         mapleader = " ";
       };
 
-      colorschemes.catppuccin.enable = true;
-
-      opts = {
-        # line numbering
-        relativenumber = true;
-        number = true;
-
-        # whitespace
-        tabstop = 2;
-        shiftwidth = 2;
-        expandtab = true;
-        autoindent = true;
-
-        # signs
-        signcolumn = "yes";
-
-        # line wrapping
-        wrap = false;
-
-        # search
-        ignorecase = true;
-        smartcase = true;
-
-        # highlighting
-        cursorline = true;
-
-        # theming
-        termguicolors = true;
-        background = "dark";
-
-        # backspace
-        backspace = "indent,eol,start";
-
-        # clipboard
-        clipboard = "unnamedplus";
-
-        # windows
-        splitright = true;
-        splitbelow = true;
-      };
+      colorschemes.catppuccin.enable = true; 
 
       keymaps = [
         # Conventions:
