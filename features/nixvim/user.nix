@@ -15,6 +15,8 @@
         mapleader = " ";
       };
 
+      colorschemes.catppuccin.enable = true;
+
       opts = {
         # line numbering
         relativenumber = true;
