@@ -25,6 +25,8 @@
         shiftwidth = 2;
         expandtab = true;
         autoindent = true;
+
+        # signs
         signcolumn = "yes";
 
         # line wrapping
@@ -34,7 +36,7 @@
         ignorecase = true;
         smartcase = true;
 
-        # line highlighting
+        # highlighting
         cursorline = true;
 
         # theming
