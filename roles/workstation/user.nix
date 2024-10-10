@@ -32,6 +32,7 @@ let
       asDefaultEditor = true;
     };
     dotfiles.features.nixvim.enable = false;
+    dotfiles.features.neovim.enable = true;
     dotfiles.features.direnv.enable = true;
     dotfiles.features.zoxide.enable = true;
     dotfiles.features.eza.enable = true;
