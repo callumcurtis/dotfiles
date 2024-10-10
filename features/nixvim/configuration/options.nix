@@ -39,6 +39,9 @@
       # windows
       splitright = true;
       splitbelow = true;
+
+      # swapfile
+      swapfile = false;
     };
   };
 }
