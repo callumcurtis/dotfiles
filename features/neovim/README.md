@@ -9,4 +9,5 @@ To add a plugin, install the plugin in [user.nix](./user.nix) and configure it i
 ## Resources
 
 - [Using lazy.nvim with Nix](https://nixalted.com/)
+- [Example configuration #1](https://www.josean.com/posts/how-to-setup-neovim-2024)
 

@@ -19,7 +19,7 @@
         vim.g.mapleader = " " -- Need to set leader before lazy for correct keybindings
         require("lazy").setup({
           spec = {
-            { import = "plugins" }, -- Import plugins from lua/plugins
+            { import = "lua/plugins" }, -- Import plugins from config/lua/plugins
           },
           performance = {
             reset_packpath = false,
@@ -36,9 +36,9 @@
       '';
     };
 
-    xdg.configFile."nvim/lua" = {
+    xdg.configFile."nvim" = {
       recursive = true;
-      source = ./lua;
+      source = ./config;
     };
   };
 }

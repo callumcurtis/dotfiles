@@ -12,7 +12,6 @@
     dotfiles.features.flakes.enable = true;
     dotfiles.features.ssh.enable = true;
     dotfiles.features.fish.enable = true;
-    dotfiles.features.nixvim.enable = false;
     dotfiles.features.neovim.enable = true;
     dotfiles.features.docker = {
       enable = true;

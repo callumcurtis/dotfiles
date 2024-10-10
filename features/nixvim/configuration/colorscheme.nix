@@ -1,3 +1,5 @@
+# TODO: finish removing nixvim configuration
+
 { config, lib, ... }:
 
 {
