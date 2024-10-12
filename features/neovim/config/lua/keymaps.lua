@@ -24,6 +24,7 @@ local keymap = vim.keymap
 -- save/quit
 keymap.set("n", "<leader>w", ":w<CR>", { desc = "Write the buffer to the current file" })
 keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit the current window" })
+keymap.set("n", "<leader>Q", ":q!<CR>", { desc = "Force quit the current window" })
 
 -- highlight
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear highlights" })
