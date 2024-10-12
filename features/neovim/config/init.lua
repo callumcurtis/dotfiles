@@ -1,10 +1,10 @@
-require("options")
-require("keymaps")
+require("dotfiles.options")
+require("dotfiles.keymaps")
 
 -- TODO: create lazy module
 require("lazy").setup({
   spec = {
-    { import = "plugins" }, -- import plugins from lua/plugins
+    { import = "dotfiles/plugins" }, -- import plugins from lua/dotfiles/plugins
   },
   performance = {
     reset_packpath = false,
