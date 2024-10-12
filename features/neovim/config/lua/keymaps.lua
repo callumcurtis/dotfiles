@@ -18,6 +18,7 @@
 --]]
 
 vim.g.mapleader = " "
+
 local keymap = vim.keymap
 
 -- save/quit

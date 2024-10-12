@@ -1,14 +1,12 @@
--- TODO: update this placeholder configuration
-
 vim.cmd("let g:netrw_liststyle = 3")
 
-local opt = vim.opt -- for conciseness
+local opt = vim.opt
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
-opt.number = true         -- shows absolute line number on cursor line (when relative number is on)
+opt.number = true         -- show absolute line number on cursor line (when relative number is on)
 
--- tabs & indentation
+-- tabs/indentation
 opt.tabstop = 2       -- 2 spaces for tabs (prettier default)
 opt.shiftwidth = 2    -- 2 spaces for indent width
 opt.expandtab = true  -- expand tab to spaces
@@ -30,7 +28,7 @@ opt.background = "dark" -- colorschemes that can be light or dark will be made d
 opt.signcolumn = "yes"  -- show sign column so that text doesn't shift
 
 -- backspace
-opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
+opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line, or insert mode start position
 
 -- clipboard
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
@@ -39,5 +37,5 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
--- turn off swapfile
+-- swapfile
 opt.swapfile = false
