@@ -26,7 +26,7 @@ let
       enable = true;
       shell = config.dotfiles.constants.shell;
     };
-    # TODO: replace lunarvim with nixvim
+    # TODO: replace lunarvim with neovim
     dotfiles.features.lunarvim = {
       enable = true;
       asDefaultEditor = true;

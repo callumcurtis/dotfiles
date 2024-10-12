@@ -12,7 +12,7 @@ require("lazy").setup({
   },
   dev = {
     path = "@packpath@", -- substituted in the Nix layer
-    patterns = { "" },   -- specify that all of our plugins will use the dev dir. Empty string is a wildcard.
+    patterns = { "" },   -- specify that all plugins will use the dev dir - empty string is a wildcard
   },
   install = {
     missing = false, -- safeguard in case we forget to install a plugin with Nix
