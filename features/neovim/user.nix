@@ -12,6 +12,8 @@
         lazy-nvim
         # plugins
         catppuccin-nvim
+        nvim-tree-lua
+        nvim-web-devicons
         which-key-nvim
       ];
     };
