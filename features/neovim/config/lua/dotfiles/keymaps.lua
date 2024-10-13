@@ -1,22 +1,3 @@
---[[
--- Mnemonics
---   Abbreviations
---     Example: :w -> <leader>w
---   Objects-Verb
---     Ordering: [object ...] verb
---     Object
---       (t)ab
---       (s)plit
---     Verb
---       (o)pen
---       (f)ind
---       (c)lose
---       (b)ack
---       (n)ext
---     Exceptions
---       Pressing object twice closes the object (where it makes sense)
---]]
-
 vim.g.mapleader = " "
 
 local keymap = vim.keymap
