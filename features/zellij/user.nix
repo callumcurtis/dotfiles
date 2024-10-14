@@ -1,4 +1,4 @@
-{ config, lib, dotfiles, ... }:
+{ config, lib, dotfiles, pkgs, ... }:
 
 {
   options.dotfiles.features.zellij = {
@@ -11,13 +11,13 @@
     programs.zellij = {
       enable = true;
       enableFishIntegration = config.dotfiles.features.zellij.autoStartIn.fish;
-      settings = {
-        default_shell = config.dotfiles.features.zellij.shell;
-        # TODO(#1): use stylix to manage themes.
-        theme = "tokyo-night-dark";
-        default_layout = "compact";
-        pane_frames = false;
-      };
+    };
+
+    xdg.configFile."zellij/config.kdl".source = pkgs.substitute {
+      src = ./config.kdl;
+      substitutions = [
+        "--subst-var-by" "default_shell" "${config.dotfiles.features.zellij.shell}"
+      ];
     };
   };
 }
