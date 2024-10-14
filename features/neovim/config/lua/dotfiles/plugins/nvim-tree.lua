@@ -6,9 +6,33 @@ return {
       vim.g.loaded_netrw = 1
       vim.g.loaded_netrwPlugin = 1
 
+      local api = require("nvim-tree.api")
       local icons = require("dotfiles.icons")
+      local keymap = vim.keymap
 
       require("nvim-tree").setup({
+        on_attach = function(bufnr)
+          local opts = function(desc)
+            return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+          end
+
+          local function edit_or_open()
+            local node = api.tree.get_node_under_cursor()
+            if node.nodes ~= nil then
+              -- expand or collapse folder
+              api.node.open.edit()
+            else
+              -- open file
+              api.node.open.edit()
+              -- Close the tree if file was opened
+              api.tree.close()
+            end
+          end
+
+          keymap.set("n", "l", edit_or_open, opts("Open"))
+          keymap.set("n", "h", api.tree.close, opts("Collapse"))
+          keymap.set("n", "H", api.tree.collapse_all, opts("Collapse all"))
+        end,
         view = {
           width = 30,
           adaptive_size = true,
@@ -106,12 +130,6 @@ return {
           },
         },
       })
-
-      local keymap = vim.keymap
-      local api = require("nvim-tree.api")
-
-      keymap.set("n", "l", api.node.open.edit, { desc = "Open" })
-      keymap.set("n", "h", api.node.navigate.parent_close, { desc = "Collapse" })
 
       keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
       keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFile<CR>", { desc = "Focus current file in explorer" })
