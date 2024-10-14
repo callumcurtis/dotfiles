@@ -14,6 +14,8 @@
         catppuccin-nvim
         nvim-tree-lua
         nvim-web-devicons
+        telescope-nvim
+        telescope-fzf-native-nvim
         which-key-nvim
       ];
     };
