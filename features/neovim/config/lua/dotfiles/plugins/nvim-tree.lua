@@ -29,9 +29,9 @@ return {
             end
           end
 
+          -- TODO: implement recursive subfolder close/open bound to H/L keys
+          -- See: https://github.com/nvim-tree/nvim-tree.lua/blob/f5f67892996b280ae78b1b0a2d07c4fa29ae0905/lua/nvim-tree/actions/tree/modifiers/collapse-all.lua
           keymap.set("n", "l", edit_or_open, opts("Open"))
-          keymap.set("n", "h", api.tree.close, opts("Collapse"))
-          keymap.set("n", "H", api.tree.collapse_all, opts("Collapse all"))
         end,
         view = {
           width = 30,
