@@ -12,6 +12,7 @@
         lazy-nvim
         # plugins
         catppuccin-nvim
+        lualine-nvim
         nvim-tree-lua
         nvim-web-devicons
         telescope-nvim
