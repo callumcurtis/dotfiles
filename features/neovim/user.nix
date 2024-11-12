@@ -12,6 +12,7 @@
         lazy-nvim
         # plugins
         catppuccin-nvim
+        indent-blankline-nvim
         lualine-nvim
         nvim-tree-lua
         nvim-web-devicons
