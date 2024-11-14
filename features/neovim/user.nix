@@ -1,7 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, dotfiles, ... }:
 
 {
-  options.dotfiles.features.neovim.enable = lib.mkEnableOption "neovim";
+  options.dotfiles.features.neovim = {
+    enable = lib.mkEnableOption "neovim";
+    asDefaultEditor = dotfiles.lib.mkTypedOptionWithDefault lib.types.bool false;
+  };
 
   config = lib.mkIf config.dotfiles.features.neovim.enable {
     programs.neovim = {
@@ -15,11 +18,17 @@
         indent-blankline-nvim
         lualine-nvim
         nvim-tree-lua
+        nvim-treesitter.withAllGrammars
+        nvim-ts-autotag
         nvim-web-devicons
         telescope-nvim
         telescope-fzf-native-nvim
         which-key-nvim
       ];
+    };
+
+    home.sessionVariables = lib.mkIf config.dotfiles.features.neovim.asDefaultEditor {
+      EDITOR = "${config.programs.neovim.finalPackage}/bin/nvim";
     };
 
     xdg.configFile."nvim/lua" = {
