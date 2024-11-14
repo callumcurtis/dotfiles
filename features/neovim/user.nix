@@ -27,6 +27,10 @@
       ];
     };
 
+    home.shellAliases = lib.mkIf config.dotfiles.features.neovim.asDefaultEditor {
+      v = "${config.programs.neovim.finalPackage}/bin/nvim";
+    };
+
     home.sessionVariables = lib.mkIf config.dotfiles.features.neovim.asDefaultEditor {
       EDITOR = "${config.programs.neovim.finalPackage}/bin/nvim";
     };
