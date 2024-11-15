@@ -15,8 +15,13 @@
         lazy-nvim
         # plugins
         catppuccin-nvim
+        cmp-buffer
+        cmp-path
         indent-blankline-nvim
+        lspkind-nvim
         lualine-nvim
+        luasnip
+        nvim-cmp
         nvim-tree-lua
         nvim-treesitter.withAllGrammars
         nvim-ts-autotag
