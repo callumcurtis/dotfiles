@@ -21,6 +21,7 @@
         lspkind-nvim
         lualine-nvim
         luasnip
+        nvim-autopairs
         nvim-cmp
         nvim-tree-lua
         nvim-treesitter.withAllGrammars
