@@ -29,6 +29,7 @@
         nvim-web-devicons
         telescope-nvim
         telescope-fzf-native-nvim
+        todo-comments-nvim
         which-key-nvim
       ];
     };
