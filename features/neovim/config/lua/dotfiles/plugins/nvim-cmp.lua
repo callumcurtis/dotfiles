@@ -24,16 +24,19 @@ return {
       }),
       sources = cmp.config.sources({
         { name = "buffer" }, -- text within current buffer
-      }, {
         { name = "path" }, -- file system paths
       }),
 
-      -- configure lspkind for completion-type pictograms in completion menu
       formatting = {
-        format = lspkind.cmp_format({
-          maxwidth = 50,
-          ellipsis_char = "...",
-        }),
+        format = function(entry, vim_item)
+          -- use lspkind for completion-type pictograms in completion menu
+          vim_item = lspkind.cmp_format({
+            maxwidth = 50,
+            ellipsis_char = "...",
+          })(entry, vim_item)
+          vim_item.dup = 0
+          return vim_item
+        end,
       },
     })
   end,
