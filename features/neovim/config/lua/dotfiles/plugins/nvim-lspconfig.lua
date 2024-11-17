@@ -75,6 +75,7 @@ return {
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
     -- Setup language servers
+    -- :h lspconfig-all
     lspconfig.lua_ls.setup {
       capabilities = capabilities,
       on_init = function(client)
@@ -103,5 +104,6 @@ return {
     }
 
     lspconfig.pyright.setup {}
+    lspconfig.nil_ls.setup {}
   end
 }
