@@ -16,6 +16,7 @@
         # plugins
         catppuccin-nvim
         cmp-buffer
+        cmp-nvim-lsp
         cmp-path
         indent-blankline-nvim
         lspkind-nvim
@@ -23,6 +24,7 @@
         luasnip
         nvim-autopairs
         nvim-cmp
+        nvim-lspconfig
         nvim-tree-lua
         nvim-treesitter.withAllGrammars
         nvim-ts-autotag
@@ -31,6 +33,10 @@
         telescope-fzf-native-nvim
         todo-comments-nvim
         which-key-nvim
+      ];
+
+      extraPackages = with pkgs; [
+        lua-language-server
       ];
     };
 
