@@ -105,5 +105,6 @@ return {
 
     lspconfig.pyright.setup {}
     lspconfig.nil_ls.setup {}
+    lspconfig.bashls.setup{}
   end
 }
