@@ -37,9 +37,10 @@
 
       extraPackages = with pkgs; [
         lua-language-server
-        pyright
         nil
         nodePackages.bash-language-server
+        pyright
+        rust-analyzer
       ];
     };
 
