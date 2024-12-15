@@ -25,5 +25,17 @@
         };
       };
     };
+
+    home.shellAliases = {
+      gs = "git status";
+      gl = "git log --oneline";
+      gll = "git log";
+      gd = "git diff";
+      gdh = "git diff HEAD";
+      gds = "git diff --staged";
+      ga = "git add";
+      gc = "git commit -m";
+      gca = "git commit --amend";
+    };
   };
 }
