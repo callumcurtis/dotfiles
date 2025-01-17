@@ -29,8 +29,9 @@
         nvim-treesitter.withAllGrammars
         nvim-ts-autotag
         nvim-web-devicons
-        telescope-nvim
+        telescope-frecency-nvim
         telescope-fzf-native-nvim
+        telescope-nvim
         todo-comments-nvim
         which-key-nvim
       ];
