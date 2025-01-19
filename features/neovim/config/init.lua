@@ -1,5 +1,6 @@
 require("dotfiles.options")
 require("dotfiles.keymaps")
+require("dotfiles.autocmds")
 
 -- TODO: create lazy module
 require("lazy").setup({

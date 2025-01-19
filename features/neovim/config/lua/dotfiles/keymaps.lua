@@ -23,3 +23,4 @@ keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
 keymap.set("n", "<leader>tt", "<cmd>tabclose<CR>", { desc = "Close current tab" })
 keymap.set("n", "<leader>tb", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
+
