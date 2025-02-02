@@ -24,7 +24,19 @@
 
   swapDevices = [ ];
 
-  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq = {
+    enable = true;
+    settings = {
+      battery = {
+         governor = "powersave";
+         turbo = "never";
+      };
+      charger = {
+         governor = "performance";
+         turbo = "auto";
+      };
+    };
+  };
   services.thermald.enable = true;
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
