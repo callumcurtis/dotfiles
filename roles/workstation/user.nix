@@ -35,6 +35,7 @@ let
     dotfiles.features.eza.enable = true;
     dotfiles.features.ripgrep.enable = true;
     dotfiles.features.starship.enable = true;
+    dotfiles.features.glow.enable = true;
     dotfiles.features.git = {
       enable = true;
       user.name = config.dotfiles.constants.name.full;
