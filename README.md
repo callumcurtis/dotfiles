@@ -10,10 +10,17 @@ The following instructions assume you're using NixOS. You can still use the home
 
 1. clone this repo
 2. symlink your `/etc/nixos/` folder to the cloned repo
-3. run `sudo nixos-rebuild test --flake .#<hostname>` &mdash; where `<hostname>` is the name of the host configuration you'd like to apply &mdash; from the root of the cloned repo to temporarily apply the configurations
-4. once happy with the changes, use `sudo nixos-rebuild switch --flake .#<hostname>` to apply the configurations as a new system generation
+3. update the [defaults](./constants/default.nix) as you like
+3. run `sudo nixos-rebuild test --flake .#<hostname> --override-input wallpapers <input>`
+&mdash; where `<hostname>` is the name of the host configuration you'd like to apply
+and `<input>` is an input specifier for your wallpapers &mdash;
+from the root of the cloned repo to temporarily apply the configurations
+4. once happy with the changes, use
+`sudo nixos-rebuild switch --flake .#<hostname> --override-input wallpapers <input>`
+to apply the configurations as a new system generation
 
-Afterward, you won't need to include `--flake .#<hostname>` in the `nixos-rebuild` commands (unless you want to use a different `<hostname>`).
+Afterward, you won't need to include `--flake .#<hostname>` in the `nixos-rebuild`
+commands (unless you want to use a different `<hostname>`).
 
 ## Planned Improvements
 
