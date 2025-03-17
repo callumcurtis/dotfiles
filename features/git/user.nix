@@ -37,6 +37,7 @@
       ga = "git add";
       gc = "git commit -m";
       gca = "git commit --amend";
+      gpo = "git push origin";
     };
   };
 }
