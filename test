@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+sudo \
+  SSH_AUTH_SOCK="$SSH_AUTH_SOCK" \
+  nixos-rebuild test \
+  --override-input wallpapers git+ssh://git@github.com/callumcurtis/wallpapers
+

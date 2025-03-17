@@ -17,6 +17,7 @@
       extraConfig = {
         rerere.enabled = true;
         init.defaultBranch = "main";
+        push.default = "simple";
       };
       delta = {
         enable = true;

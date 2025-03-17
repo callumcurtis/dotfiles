@@ -13,6 +13,11 @@
     dotfiles.features.ssh.enable = true;
     dotfiles.features.fish.enable = true;
     dotfiles.features.neovim.enable = true;
+    dotfiles.features.stylix = {
+      enable = true;
+      wallpaper = config.dotfiles.constants.wallpaper;
+      theme = config.dotfiles.constants.theme;
+    };
     dotfiles.features.docker = {
       enable = true;
       users = builtins.mapAttrs

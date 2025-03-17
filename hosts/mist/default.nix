@@ -1,4 +1,4 @@
-{ nixpkgs, home-manager, dotfiles, ... }:
+{ nixpkgs, home-manager, stylix, dotfiles, ... }:
 
 nixpkgs.lib.nixosSystem rec {
   system = "x86_64-linux";
@@ -6,6 +6,7 @@ nixpkgs.lib.nixosSystem rec {
   specialArgs = { inherit dotfiles; };
   modules = [
     home-manager.nixosModules.home-manager
+    stylix.nixosModules.stylix
     ../common.nix
     ./system.nix
     ./hardware.nix
