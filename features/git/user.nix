@@ -23,6 +23,7 @@
         enable = true;
         options = {
           side-by-side = true;
+          dark = true;
         };
       };
     };
