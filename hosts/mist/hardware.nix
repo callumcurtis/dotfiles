@@ -24,6 +24,10 @@
 
   swapDevices = [ ];
 
+  # Useful CPU info commands:
+  # ❯ auto-cpufreq --stats
+  # ❯ cat /sys/devices/system/cpu/cpu*/cpufreq/...
+  # ❯ cat /proc/cpuinfo
   services.auto-cpufreq = {
     enable = true;
     settings = {
