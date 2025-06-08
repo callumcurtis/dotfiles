@@ -35,6 +35,7 @@ let
     dotfiles.features.eza.enable = true;
     dotfiles.features.ripgrep.enable = true;
     dotfiles.features.starship.enable = true;
+    dotfiles.features.stylix.enable = true;
     dotfiles.features.glow.enable = true;
     dotfiles.features.bat.enable = true;
     dotfiles.features.git = {

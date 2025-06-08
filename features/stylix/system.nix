@@ -23,8 +23,8 @@
           applications = 10;
         };
         monospace = {
-          package = pkgs.nerdfonts.override { fonts = ["FiraMono"]; };
-          name = "FiraMono Nerd Font";
+          package = pkgs.fira-mono;
+          name = "FiraMono";
         };
         sansSerif = {
           package = pkgs.dejavu_fonts;

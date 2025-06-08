@@ -21,7 +21,6 @@
         indent-blankline-nvim
         lspkind-nvim
         lualine-nvim
-        luasnip
         nvim-autopairs
         nvim-cmp
         nvim-lspconfig
