@@ -206,3 +206,6 @@ scroll_buffer_size 100000
 
 // The folder in which Zellij will look for themes
 //theme_dir "/path/to/my/theme_dir"
+
+// Do not show the tips popup on startup
+show_startup_tips false
