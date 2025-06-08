@@ -11,6 +11,7 @@
     programs.zellij = {
       enable = true;
       enableFishIntegration = config.dotfiles.features.zellij.autoStartIn.fish;
+      exitShellOnExit = true;
     };
 
     xdg.configFile."zellij/themes/stylix.kdl".text = lib.mkIf (config.stylix.enable) (
