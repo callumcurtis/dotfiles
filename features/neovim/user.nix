@@ -41,6 +41,7 @@
         nodePackages.bash-language-server
         pyright
         rust-analyzer
+        typescript-language-server
       ];
     };
 

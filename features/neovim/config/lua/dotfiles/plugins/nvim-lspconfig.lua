@@ -107,5 +107,6 @@ return {
     lspconfig.nil_ls.setup {}
     lspconfig.bashls.setup{}
     lspconfig.rust_analyzer.setup {}
+    lspconfig.ts_ls.setup {}
   end
 }
