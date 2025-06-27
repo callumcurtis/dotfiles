@@ -38,6 +38,7 @@ let
     dotfiles.features.stylix.enable = true;
     dotfiles.features.glow.enable = true;
     dotfiles.features.bat.enable = true;
+    dotfiles.features.tldr.enable = true;
     dotfiles.features.git = {
       enable = true;
       user.name = config.dotfiles.constants.name.full;
