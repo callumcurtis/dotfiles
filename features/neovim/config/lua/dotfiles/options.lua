@@ -39,3 +39,8 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- swapfile
 opt.swapfile = false
+
+-- undo
+opt.undofile = true
+opt.undodir = vim.fn.stdpath('state') .. '/undo'
+
