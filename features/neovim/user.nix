@@ -22,6 +22,7 @@
         lspkind-nvim
         lualine-nvim
         nvim-autopairs
+        nvim-bqf
         nvim-cmp
         nvim-lspconfig
         nvim-tree-lua
