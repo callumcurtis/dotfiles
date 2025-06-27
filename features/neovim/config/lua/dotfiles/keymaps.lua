@@ -3,8 +3,8 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 
 -- motions
-keymap.set("n", "<leader>h", "^", { desc = "Jump to the first non-blank character of the line" })
-keymap.set("n", "<leader>l", "$", { desc = "Jump to the end of the line" })
+keymap.set("n", "<leader>h", "^", { desc = "First non-blank character of the line" })
+keymap.set("n", "<leader>l", "$", { desc = "End of the line" })
 
 -- save/quit
 keymap.set("n", "<leader>w", ":w ++p<CR>", { desc = "Write the buffer to the current file" })

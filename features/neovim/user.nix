@@ -34,6 +34,7 @@
         telescope-nvim
         todo-comments-nvim
         which-key-nvim
+        gitsigns-nvim
       ];
 
       extraPackages = with pkgs; [
