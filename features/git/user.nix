@@ -38,6 +38,8 @@
       ga = "git add";
       gc = "git commit -m";
       gca = "git commit --amend";
+      gco = "git checkout";
+      gcob = "git checkout -b";
       gpo = "git push origin";
     };
   };
