@@ -41,6 +41,8 @@
         nil
         nodePackages.bash-language-server
         pyright
+        terraform-ls
+        gopls
         rust-analyzer
       ];
     };

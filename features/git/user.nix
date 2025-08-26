@@ -18,6 +18,13 @@
         rerere.enabled = true;
         init.defaultBranch = "main";
         push.default = "simple";
+        url = {
+          "ssh://git@github.com/" = {
+          	insteadOf = [
+          	  "https://github.com/"
+            ];
+          };
+        };
       };
       delta = {
         enable = true;

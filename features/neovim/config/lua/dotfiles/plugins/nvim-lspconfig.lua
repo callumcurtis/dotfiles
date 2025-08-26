@@ -104,8 +104,10 @@ return {
     }
 
     lspconfig.pyright.setup {}
+    lspconfig.terraformls.setup {}
+    lspconfig.gopls.setup {}
     lspconfig.nil_ls.setup {}
-    lspconfig.bashls.setup{}
+    lspconfig.bashls.setup {}
     lspconfig.rust_analyzer.setup {}
   end
 }

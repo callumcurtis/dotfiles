@@ -12,6 +12,9 @@
       settings = {
         shell = config.dotfiles.features.kitty.shell;
       };
+      extraConfig = ''
+        macos_option_as_alt yes
+      '';
     };
   };
 }

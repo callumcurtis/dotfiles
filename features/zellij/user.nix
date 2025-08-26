@@ -1,6 +1,8 @@
 { config, lib, dotfiles, pkgs, ... }:
 
-{
+let
+  inherit (pkgs) stdenv;
+in {
   options.dotfiles.features.zellij = {
     enable = lib.mkEnableOption "zellij";
     shell = dotfiles.lib.mkTypedOption lib.types.path;
@@ -36,6 +38,7 @@
       src = ./config.kdl;
       substitutions = [
         "--subst-var-by" "default_shell" "${config.dotfiles.features.zellij.shell}"
+        "--subst-var-by" "leader" (if stdenv.isDarwin then "Alt" else "Alt")
       ];
     };
   };
