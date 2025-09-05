@@ -2,10 +2,6 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
--- motions
-keymap.set("n", "<leader>h", "^", { desc = "First non-blank character of the line" })
-keymap.set("n", "<leader>l", "$", { desc = "End of the line" })
-
 -- save/quit
 keymap.set("n", "<leader>w", ":w ++p<CR>", { desc = "Write the buffer to the current file" })
 keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit the current window" })
