@@ -38,6 +38,7 @@
       ];
 
       extraPackages = with pkgs; [
+        llvmPackages_20.clang-tools
         lua-language-server
         nil
         nodePackages.bash-language-server

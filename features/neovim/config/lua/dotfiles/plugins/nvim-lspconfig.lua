@@ -114,5 +114,6 @@ return {
     lspconfig.bashls.setup{}
     lspconfig.rust_analyzer.setup {}
     lspconfig.ts_ls.setup {}
+    lspconfig.clangd.setup {}
   end
 }
