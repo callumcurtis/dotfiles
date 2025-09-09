@@ -18,7 +18,10 @@
       dotfiles.wallpapers = inputs.wallpapers;
     };
   in {
-    nixosConfigurations.mist = hosts.mist args;
+    nixosConfigurations = {
+      mist = hosts.mist args;
+      wind = hosts.wind args;
+    };
   };
 }
 
