@@ -23,7 +23,7 @@
           applications = 10;
         };
         monospace = {
-          package = pkgs.fira-mono;
+          package = pkgs.nerd-fonts.fira-mono;
           name = "FiraMono";
         };
         sansSerif = {

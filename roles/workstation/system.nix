@@ -5,6 +5,7 @@
 
   config = lib.mkIf (config.dotfiles.system.roles.workstation.enable) {
     dotfiles.features.gnome.enable = true;
+    dotfiles.features.hyprland.enable = true;
     dotfiles.features.grub.enable = true;
     dotfiles.features.networking.enable = true;
     dotfiles.features.printing.enable = true;

@@ -5,7 +5,7 @@
 
   config = lib.mkIf config.dotfiles.features.gnome.enable {
     home.packages = with pkgs; [
-      xclip
+      # xclip
     ];
   };
 }

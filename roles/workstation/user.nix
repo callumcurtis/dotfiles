@@ -12,6 +12,9 @@ let
     # Desktop environment.
     # TODO: the desktop environment should be selected by the system configuration
     dotfiles.features.gnome.enable = true;
+    dotfiles.features.hyprland.enable = true;
+
+    dotfiles.features.audio.enable = true;
 
     # GUI programs.
     dotfiles.features.google-chrome.enable = true;
