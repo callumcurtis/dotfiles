@@ -107,7 +107,7 @@ return {
         map('n', '<leader>hq', gitsigns.setqflist, { desc = "Add git hunk to quickfix list" })
 
         -- Text object
-        map({'o', 'x'}, 'hg', gitsigns.select_hunk, { desc = "Select git hunk" })
+        map({'o', 'x'}, 'ih', gitsigns.select_hunk, { desc = "Select git hunk" })
       end
     })
   end,
