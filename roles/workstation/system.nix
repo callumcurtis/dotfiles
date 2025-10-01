@@ -13,7 +13,6 @@
     dotfiles.features.flakes.enable = true;
     dotfiles.features.ssh.enable = true;
     dotfiles.features.fish.enable = true;
-    dotfiles.features.neovim.enable = true;
     dotfiles.features.stylix = {
       enable = true;
       wallpaper = config.dotfiles.constants.wallpaper;

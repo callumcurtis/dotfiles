@@ -103,10 +103,13 @@
           ];
         };
 
-        monitor =
-          [
-            "DP-1, 2560x1440@165, 0x0, 1, transform, 1" # TODO: this depends on the host
-          ];
+        monitor = [
+          "DP-1, 2560x1440@165, 0x0, 1, transform, 1" # TODO: this depends on the host
+        ];
+
+        input = {
+          kb_options = "caps:escape";
+        };
 
         cursor = {
           no_hardware_cursors = 1; # fixes flickering cursor and displayed offset
