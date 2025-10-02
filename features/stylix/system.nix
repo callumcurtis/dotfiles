@@ -17,7 +17,7 @@
       base16Scheme = config.dotfiles.features.stylix.theme;
       fonts = {
         sizes = {
-          terminal = 10;
+          terminal = 9;
           desktop = 9;
           popups = 9;
           applications = 10;
