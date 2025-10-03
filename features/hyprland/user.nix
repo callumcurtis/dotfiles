@@ -5,6 +5,7 @@
 
   config = lib.mkIf config.dotfiles.features.hyprland.enable {
     home.packages = with pkgs; [
+      brightnessctl
       cliphist
       wl-clipboard
       hyprpicker
