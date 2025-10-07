@@ -1,4 +1,4 @@
-{ nixpkgs, home-manager, stylix, dotfiles, hyprland, ... }:
+{ nixpkgs, nixpkgs-unstable, home-manager, stylix, dotfiles, hyprland, ... }:
 
 nixpkgs.lib.nixosSystem rec {
   system = "x86_64-linux";
@@ -12,6 +12,17 @@ nixpkgs.lib.nixosSystem rec {
     ./hardware.nix
     # Allows use of the given arguments outside of config blocks in home-manager modules.
     { home-manager.extraSpecialArgs = specialArgs; }
+    ({ config, pkgs, ... }:
+      {
+        nixpkgs.overlays = [
+          (final: prev: {
+            unstable = import nixpkgs-unstable {
+              inherit (final) system config;
+            };
+          })
+        ];
+      }
+    )
   ];
 }
 

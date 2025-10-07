@@ -33,6 +33,7 @@ let
       enable = true;
       asDefaultEditor = true;
     };
+    dotfiles.features.cursor.enable = true;
     dotfiles.features.direnv.enable = true;
     dotfiles.features.zoxide.enable = true;
     dotfiles.features.eza.enable = true;
