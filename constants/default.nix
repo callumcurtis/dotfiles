@@ -21,7 +21,7 @@ in {
     theme = mk "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
     # Path to a wallpaper within the flake's wallpapers input
     # To use a different set of wallpapers, override the wallpapers input
-    wallpaper = mk "${dotfiles.wallpapers}/1ddbba008a5.png";
+    wallpaper = mk "${dotfiles.wallpapers}/9822ccea197.jpg";
   };
 }
 

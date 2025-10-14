@@ -2,6 +2,5 @@
 
 sudo \
   SSH_AUTH_SOCK="$SSH_AUTH_SOCK" \
-  nixos-rebuild switch \
-  --override-input wallpapers git+ssh://git@github.com/callumcurtis/wallpapers
+  nixos-rebuild switch
 

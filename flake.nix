@@ -8,7 +8,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:nix-community/stylix/release-25.05";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
-    wallpapers.url = "github:input-output-hk/empty-flake?rev=2040a05b67bf9a669ce17eca56beb14b4206a99a";
+    wallpapers.url = "git+ssh://git@github.com/callumcurtis/wallpapers";
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
