@@ -41,6 +41,7 @@ let
     dotfiles.features.starship.enable = true;
     dotfiles.features.stylix.enable = true;
     dotfiles.features.glow.enable = true;
+    dotfiles.features.yazi.enable = true;
     dotfiles.features.bat.enable = true;
     dotfiles.features.tldr.enable = true;
     dotfiles.features.git = {
