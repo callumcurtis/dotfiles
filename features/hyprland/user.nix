@@ -14,7 +14,6 @@
       cliphist
       wl-clipboard
       hyprpicker
-      kdePackages.dolphin
       hyprpolkitagent
       dunst
       pyprland
