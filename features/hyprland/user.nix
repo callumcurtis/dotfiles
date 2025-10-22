@@ -16,6 +16,7 @@
       hyprpicker
       hyprpolkitagent
       dunst
+      hyprshot
     ];
     programs.rofi = {
       enable = true;
@@ -128,10 +129,12 @@
           [
             # applications
             "$mod, b, exec, ${config.dotfiles.features.hyprland.browser}"
-            "$mod, s, exec, ${config.dotfiles.features.hyprland.terminal}"
+            "$mod, t, exec, ${config.dotfiles.features.hyprland.terminal}"
             "$mod, v, exec, cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"
             "$mod, space, exec, rofi -show drun"
             "$mod, c, exec, hyprpicker"
+            "$mod, s, exec, hyprshot -m region"
+            "$mod shift, s, exec, hyprshot -m window"
 
             # modify window
             "$mod, q, killactive,"
