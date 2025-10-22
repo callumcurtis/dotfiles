@@ -16,7 +16,6 @@
       hyprpicker
       hyprpolkitagent
       dunst
-      pyprland
     ];
     programs.rofi = {
       enable = true;
@@ -54,22 +53,6 @@
       enable = true;
       settings.auth."pam:enabled" = true;
     };
-
-    # TODO: pypr assumes kitty
-    xdg.configFile."hypr/pyprland.toml".text = ''
-      [pyprland]
-      plugins = [
-        "scratchpads",
-      ]
-
-      [scratchpads.terminal]
-      animation = ""
-      command = "kitty --class kitty-dropterm"
-      class = "kitty-dropterm"
-      size = "75% 60%"
-      max_size = "1920px 100%"
-      margin = 50
-    '';
 
     wayland.windowManager.hyprland = {
       enable = true;
@@ -134,14 +117,10 @@
           no_donation_nag = true;
         };
 
-        # screenshot
-        # audio level display
-
         exec-once = [
           "wl-paste --type text --watch cliphist store" # text
           "wl-paste --type image --watch cliphist store" # image
           "systemctl --user start hyprpolkitagent" # GUI for authentication
-          "pypr &" # pyprland
           "waybar &"
         ];
 
@@ -150,7 +129,6 @@
             # applications
             "$mod, b, exec, ${config.dotfiles.features.hyprland.browser}"
             "$mod, s, exec, ${config.dotfiles.features.hyprland.terminal}"
-            "$mod shift, s, exec, pypr toggle terminal"
             "$mod, v, exec, cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"
             "$mod, space, exec, rofi -show drun"
             "$mod, c, exec, hyprpicker"
@@ -243,8 +221,6 @@
       };
     };
     home.sessionVariables.NIXOS_OZONE_WL = "1";
-
-
 
     programs.waybar = {
       enable = true;
