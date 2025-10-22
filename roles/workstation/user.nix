@@ -1,7 +1,11 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, dotfiles, ... }:
 
 let
-  hm = {
+  shell = "${pkgs.fish}/bin/fish";
+  terminal = "${pkgs.kitty}/bin/kitty";
+  browser = "${pkgs.google-chrome}/bin/google-chrome-stable";
+
+  hm = options: {
     imports = [
       ../../features/user.nix
     ];
@@ -12,7 +16,11 @@ let
     # Desktop environment.
     # TODO: the desktop environment should be selected by the system configuration
     dotfiles.features.gnome.enable = true;
-    dotfiles.features.hyprland.enable = true;
+    dotfiles.features.hyprland = {
+      enable = true;
+      monitors = options.monitors;
+      inherit browser terminal;
+    };
 
     dotfiles.features.audio.enable = true;
 
@@ -22,12 +30,12 @@ let
     # Terminal configuration.
     dotfiles.features.kitty = {
       enable = true;
-      shell = config.dotfiles.constants.shell;
+      inherit shell;
     };
     dotfiles.features.fish.enable = true;
     dotfiles.features.zellij = {
       enable = true;
-      shell = config.dotfiles.constants.shell;
+      inherit shell;
     };
     dotfiles.features.neovim = {
       enable = true;
@@ -54,13 +62,16 @@ in
   options.dotfiles.users = lib.mkOption {
     default = {};
     type = lib.types.attrsOf (lib.types.submodule {
-      options.roles.workstation.enable = lib.mkEnableOption "workstation-user-role";
+      options.roles.workstation = {
+        enable = lib.mkEnableOption "workstation-user-role";
+        monitors = dotfiles.lib.mkTypedOptionWithDefault (lib.types.listOf lib.types.str) [];
+      };
     });
   };
 
   config = {
     dotfiles.features.home-manager.users = builtins.mapAttrs
-      (user: options: lib.mkIf options.roles.workstation.enable hm)
+      (user: options: lib.mkIf options.roles.workstation.enable (hm options.roles.workstation))
       (config.dotfiles.users);
   };
 }

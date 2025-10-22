@@ -3,6 +3,10 @@
 let
   # Assign usernames to variables to avoid typos between usages.
   callumcurtis = "callumcurtis";
+  monitors = [
+    "DP-1, 2560x1440@165, 0x0, 1, transform, 1"
+    "DP-2, 2560x1440@165, 1440x680, 1"
+  ];
 in
 {
   imports = [
@@ -25,7 +29,10 @@ in
 
   # Assign roles to users and the system.
   dotfiles.system.roles.workstation.enable = true;
-  dotfiles.users.${callumcurtis}.roles.workstation.enable = true;
+  dotfiles.users.${callumcurtis}.roles.workstation = {
+    enable = true;
+    inherit monitors;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

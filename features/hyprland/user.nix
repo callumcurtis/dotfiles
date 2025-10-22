@@ -1,7 +1,12 @@
-{ config, lib, pkgs, hyprland, ... }:
+{ config, lib, pkgs, hyprland, dotfiles, ... }:
 
 {
-  options.dotfiles.features.hyprland.enable = lib.mkEnableOption "hyprland";
+  options.dotfiles.features.hyprland = {
+    enable = lib.mkEnableOption "hyprland";
+    browser = dotfiles.lib.mkTypedOption lib.types.path;
+    terminal = dotfiles.lib.mkTypedOption lib.types.path;
+    monitors = dotfiles.lib.mkTypedOptionWithDefault (lib.types.listOf lib.types.str) [];
+  };
 
   config = lib.mkIf config.dotfiles.features.hyprland.enable {
     home.packages = with pkgs; [
@@ -51,6 +56,7 @@
       settings.auth."pam:enabled" = true;
     };
 
+    # TODO: pypr assumes kitty
     xdg.configFile."hypr/pyprland.toml".text = ''
       [pyprland]
       plugins = [
@@ -104,9 +110,7 @@
           ];
         };
 
-        monitor = [
-          "DP-1, 2560x1440@165, 0x0, 1, transform, 1" # TODO: this depends on the host
-        ];
+        monitor = config.dotfiles.features.hyprland.monitors;
 
         input = {
           kb_options = "caps:escape";
@@ -145,8 +149,8 @@
         bind =
           [
             # applications
-            "$mod, b, exec, google-chrome-stable" # TODO: browser
-            "$mod, s, exec, kitty" # TODO: terminal
+            "$mod, b, exec, ${config.dotfiles.features.hyprland.browser}"
+            "$mod, s, exec, ${config.dotfiles.features.hyprland.terminal}"
             "$mod shift, s, exec, pypr toggle terminal"
             "$mod, v, exec, cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"
             "$mod, space, exec, rofi -show drun"
