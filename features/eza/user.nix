@@ -12,7 +12,7 @@
     };
 
     home.shellAliases = {
-      tree = "${config.programs.eza.package}/bin/eza --tree -L 5 --git-ignore";
+      tree = "${config.programs.eza.package}/bin/eza --tree -L 5";
     };
   };
 }
