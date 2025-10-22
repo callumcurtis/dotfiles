@@ -19,6 +19,7 @@ let
     dotfiles.features.hyprland = {
       enable = true;
       monitors = options.monitors;
+      exec-once = options.exec-once;
       inherit browser terminal;
     };
 
@@ -65,6 +66,7 @@ in
       options.roles.workstation = {
         enable = lib.mkEnableOption "workstation-user-role";
         monitors = dotfiles.lib.mkTypedOptionWithDefault (lib.types.listOf lib.types.str) [];
+        exec-once = dotfiles.lib.mkTypedOptionWithDefault (lib.types.listOf lib.types.str) [];
       };
     });
   };

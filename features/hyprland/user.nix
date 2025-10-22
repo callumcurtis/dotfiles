@@ -6,6 +6,7 @@
     browser = dotfiles.lib.mkTypedOption lib.types.path;
     terminal = dotfiles.lib.mkTypedOption lib.types.path;
     monitors = dotfiles.lib.mkTypedOptionWithDefault (lib.types.listOf lib.types.str) [];
+    exec-once = dotfiles.lib.mkTypedOptionWithDefault (lib.types.listOf lib.types.str) [];
   };
 
   config = lib.mkIf config.dotfiles.features.hyprland.enable {
@@ -123,7 +124,7 @@
           "wl-paste --type image --watch cliphist store" # image
           "systemctl --user start hyprpolkitagent" # GUI for authentication
           "waybar &"
-        ];
+        ] ++ config.dotfiles.features.hyprland.exec-once;
 
         bind =
           [

@@ -7,6 +7,9 @@ let
     "DP-1, 2560x1440@165, 0x0, 1, transform, 1"
     "DP-2, 2560x1440@165, 1440x680, 1"
   ];
+  exec-once = [
+    "hyprctl dispatch workspace 1" # Start with workspace 1 active
+  ];
 in
 {
   imports = [
@@ -31,7 +34,7 @@ in
   dotfiles.system.roles.workstation.enable = true;
   dotfiles.users.${callumcurtis}.roles.workstation = {
     enable = true;
-    inherit monitors;
+    inherit monitors exec-once;
   };
 
   # This value determines the NixOS release from which the default
