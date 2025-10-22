@@ -20,7 +20,7 @@ in
   users.users.${callumcurtis} = {
     isNormalUser = true;
     description = config.dotfiles.constants.name.full;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
   };
 
   # Assign roles to users and the system.
