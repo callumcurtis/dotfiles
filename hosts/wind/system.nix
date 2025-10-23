@@ -8,7 +8,7 @@ let
     "DP-2, 2560x1440@165, 1440x680, 1"
   ];
   exec-once = [
-    "hyprctl dispatch workspace 1" # Start with workspace 1 active
+    "hyprctl dispatch workspace 2" # Start with workspace 2 active
   ];
 in
 {
