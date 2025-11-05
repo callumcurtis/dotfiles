@@ -32,3 +32,37 @@ See this repo's [issues](https://github.com/callumcurtis/dotfiles/issues) for pl
 
 If you get a "no space left on device" error message indicating a full boot drive when attempting to run a `nixos-rebuild switch` command, you may need to remove old/unused linux kernels from `/boot/EFI/nixos`. Make sure to leave the kernel used by the current system generation intact.
 
+**boot manager disappears**
+
+This will happen occasionally when dual-booting with Windows, as Windows updates may mess with your EFI partition and cause the NixOS boot manager to disappear.
+
+1. [Download](https://nixos.org/download/) a minimal ISO image for NixOS
+2. [Copy](https://nixos.org/manual/nixos/stable/#sec-booting-from-usb-linux) the ISO onto a thumb-drive
+  ```
+  sudo dd if=<path-to-image> of=/dev/<device> bs=4m
+  ```
+3. Insert the thumb-drive into the computer that you want to recover the boot manager on and swap the boot order in your BIOS to prioritize the thumb-drive
+4. Select the Linux LTS version in the live USB
+5. [Mount](https://nixos.wiki/wiki/Bootloader#Re-installing_the_bootloader) your boot and root partitions to the live USB environment
+  ```
+  sudo mkdir -p /mnt/boot
+  sudo mount /dev/<root-partition> /mnt
+  sudo mount /dev/<efi-partition> /mnt/boot
+  ```
+6. [Enter](https://nixos.wiki/wiki/Bootloader#Re-installing_the_bootloader) your NixOS installation from the live USB environment
+  ```
+  nixos-enter
+  ```
+7. [Re-install](https://nixos.wiki/wiki/Bootloader#Re-installing_the_bootloader) the bootloader
+  ```
+  NIXOS_INSTALL_BOOTLOADER=1 /nix/var/nix/profiles/system/bin/switch-to-configuration boot
+  ```
+8. Exit the chroot environment created by `nixos-enter` and reboot
+  ```
+  <CTRL-D>
+  reboot
+  ```
+9. During startup, enter your BIOS and swap the boot order to prioritize the NixOS boot manager, which should now appear as an option
+10. Enter your recovered NixOS installation, and run another `nixos-rebuild switch` (or just `./switch` if using these dotfiles) to apply your custom
+  boot manager configuration (which will also add Windows to your NixOS boot manager options if you have enabled OS probing)
+
