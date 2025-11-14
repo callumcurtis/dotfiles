@@ -18,6 +18,7 @@
       hyprpolkitagent
       dunst
       hyprshot
+      networkmanagerapplet
     ];
     programs.rofi = {
       enable = true;
@@ -287,6 +288,7 @@
             format-wifi = "{icon} {signalStrength}%";
             format-disconnected = "󰤮";
             tooltip = false;
+            on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
           };
           "pulseaudio" = {
             format = "{icon} {volume}%";
