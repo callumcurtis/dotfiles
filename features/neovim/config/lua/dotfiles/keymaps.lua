@@ -24,3 +24,6 @@ keymap.set("n", "<leader>tt", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tb", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 
+-- jump list
+keymap.set("n", "<C-i>", "<C-S-i>") -- avoids conflict between <TAB> and <C-i>
+
