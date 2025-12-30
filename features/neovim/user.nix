@@ -35,6 +35,7 @@
         todo-comments-nvim
         which-key-nvim
         gitsigns-nvim
+        flash-nvim
       ];
 
       extraPackages = with pkgs; [
