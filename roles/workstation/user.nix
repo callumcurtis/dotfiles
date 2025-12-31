@@ -50,6 +50,7 @@ let
     dotfiles.features.btop.enable = true;
     dotfiles.features.dust.enable = true;
     dotfiles.features.fastfetch.enable = true;
+    dotfiles.features.fzf.enable = true;
     dotfiles.features.ripgrep.enable = true;
     dotfiles.features.starship.enable = true;
     dotfiles.features.stylix.enable = true;
