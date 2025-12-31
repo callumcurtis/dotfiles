@@ -13,6 +13,8 @@ return {
     cmp.setup({
       completion = { completeopt = "menu,menuone,preview,noselect" },
       mapping = cmp.mapping.preset.insert({
+        ["<C-p>"] = cmp.config.disable,
+        ["<C-n>"] = cmp.config.disable,
         ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
         ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),

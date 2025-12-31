@@ -27,3 +27,7 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 -- jump list
 keymap.set("n", "<C-i>", "<C-S-i>") -- avoids conflict between <TAB> and <C-i>
 
+-- paste
+keymap.set('i', '<C-p>', '<C-r>+', { noremap = true, silent = true, desc = "Paste from system clipboard" })
+keymap.set('i', '<C-n>', '<Nop>', { noremap = true, silent = true, desc = "Disable default CTRL-N" })
+
