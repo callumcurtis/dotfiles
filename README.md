@@ -32,6 +32,7 @@ development, and is better defined in the project's flake.
 - [entr](https://github.com/eradman/entr): run arbitrary commands when files change
 - [flamegraph](https://github.com/callumcurtis/snippets/tree/main/topic/profiling/flamegraph): opinionated stack trace visualizer
 - [hyperfine](https://github.com/sharkdp/hyperfine): command-line benchmarking tool
+- [tokei](https://github.com/XAMPPRocky/tokei): code statistics
 
 ## Planned Improvements
 
