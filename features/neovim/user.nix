@@ -10,7 +10,19 @@
     programs.neovim = {
       enable = true;
 
-      plugins = with pkgs.vimPlugins; [
+      plugins = let
+        telescope-recent-files = pkgs.vimUtils.buildVimPlugin {
+          pname = "telescope-recent-files";
+          version = "20251230";
+          src = pkgs.fetchFromGitHub {
+            owner = "smartpde";
+            repo = "telescope-recent-files";
+            rev = "eb190c0baded1cbfa9d8767c817b054377683163";
+            hash = "sha256-OxapSvSDdXFYxuza3Vf5acWTNEHg2okvhBUQJMV3hOQ=";
+          };
+          meta.homepage = "https://github.com/smartpde/telescope-recent-files";
+        };
+      in (with pkgs.vimPlugins; [
         # plugin manager
         lazy-nvim
         # plugins
@@ -29,14 +41,13 @@
         nvim-treesitter.withAllGrammars
         nvim-ts-autotag
         nvim-web-devicons
-        telescope-frecency-nvim
         telescope-fzf-native-nvim
         telescope-nvim
         todo-comments-nvim
         which-key-nvim
         gitsigns-nvim
         flash-nvim
-      ];
+      ]) ++ [ telescope-recent-files ];
 
       extraPackages = with pkgs; [
         llvmPackages_20.clang-tools
