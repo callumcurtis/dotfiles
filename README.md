@@ -37,6 +37,15 @@ development, and is better defined in the project's flake.
 
 See this repo's [issues](https://github.com/callumcurtis/dotfiles/issues) for plans on improvements to the configurations.
 
+## Useful Keymaps
+
+### In Neovim
+
+- `s<query>`: jump to query position
+- `cr<query>`: start `c` at query position
+- `vS`: start `v` using local Treesitter selection
+- `vR<query>`: start `v` using remote Treesitter selection
+
 ## Troubleshooting
 
 **"no space left on device"**
