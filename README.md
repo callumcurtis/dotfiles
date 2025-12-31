@@ -43,8 +43,8 @@ See this repo's [issues](https://github.com/callumcurtis/dotfiles/issues) for pl
 
 - `s<query>`: jump to query position
 - `cr<query>`: start `c` at query position
-- `vS`: start `v` using local Treesitter selection
-- `vR<query>`: start `v` using remote Treesitter selection
+- `vS`: start `v` using Treesitter selection
+- `vR<query>`: start `v` using Treesitter selection at query position
 
 ## Troubleshooting
 
