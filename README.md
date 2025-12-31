@@ -53,6 +53,8 @@ You can easily substitute, for example, `vS` with `dS` to achieve different effe
 - `ci"<BS>'<CTRL-p>`: replace double-quote delimiters with single-quote delimiters
 - `vif`: inner visual selection of function
 - `vic`: inner visual selection of class
+- `]f`: goto next function
+- `]c`: goto next class
 
 **insert mode**
 

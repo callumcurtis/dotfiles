@@ -25,6 +25,18 @@ return {
             ["ic"] = "@class.inner",
           },
         },
+        move = {
+          enable = true,
+          set_jumps = true,
+          goto_next_start = {
+            ["]f"] = "@function.outer",
+            ["]c"] = "@class.outer",
+          },
+          goto_previous_start = {
+            ["[f"] = "@function.outer",
+            ["[c"] = "@class.outer",
+          },
+        },
       },
       incremental_selection = {
         enable = true,
