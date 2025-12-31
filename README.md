@@ -56,6 +56,10 @@ You can easily substitute, for example, `vS` with `dS` to achieve different effe
 
 - `CTRL-P`: paste from system clipboard
 
+### In Kitty
+
+- `<ALT-e>`: edit the command in an nvim buffer
+
 ## Troubleshooting
 
 **"no space left on device"**
