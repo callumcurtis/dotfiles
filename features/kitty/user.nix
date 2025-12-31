@@ -11,6 +11,8 @@
       enable = true;
       settings = {
         shell = config.dotfiles.features.kitty.shell;
+        cursor_trail = 50;
+        cursor_trail_decay = "0.05 0.10";
       };
     };
   };
