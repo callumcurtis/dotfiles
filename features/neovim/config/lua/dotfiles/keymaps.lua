@@ -31,3 +31,9 @@ keymap.set("n", "<C-i>", "<C-S-i>") -- avoids conflict between <TAB> and <C-i>
 keymap.set('i', '<C-p>', '<C-r>+', { noremap = true, silent = true, desc = "Paste from system clipboard" })
 keymap.set('i', '<C-n>', '<Nop>', { noremap = true, silent = true, desc = "Disable default CTRL-N" })
 
+-- page up/down
+keymap.set("n", "<C-d>", "<C-d>zz")
+keymap.set("n", "<C-u>", "<C-u>zz")
+keymap.set("n", "<C-f>", "<C-f>zz")
+keymap.set("n", "<C-b>", "<C-b>zz")
+
