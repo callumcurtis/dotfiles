@@ -1,6 +1,9 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  dependencies = { "windwp/nvim-ts-autotag" },
+  dependencies = {
+    "windwp/nvim-ts-autotag",
+    "nvim-treesitter/nvim-treesitter-textobjects",
+  },
 
   config = function()
     local treesitter = require("nvim-treesitter.configs")
@@ -11,6 +14,18 @@ return {
       ensure_installed = {},
       indent = { enable = true },
       auto_install = false,
+      textobjects = {
+        select = {
+          enable = true,
+          lookahead = true,
+          keymaps = {
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["ac"] = "@class.outer",
+            ["ic"] = "@class.inner",
+          },
+        },
+      },
       incremental_selection = {
         enable = true,
         keymaps = {

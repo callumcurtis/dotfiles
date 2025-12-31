@@ -51,6 +51,8 @@ You can easily substitute, for example, `vS` with `dS` to achieve different effe
 - `vS`: start `v` using Treesitter selection
 - `vR<query>`: start `v` using Treesitter selection at query position
 - `ci"<BS>'<CTRL-p>`: replace double-quote delimiters with single-quote delimiters
+- `vif`: inner visual selection of function
+- `vic`: inner visual selection of class
 
 **insert mode**
 
