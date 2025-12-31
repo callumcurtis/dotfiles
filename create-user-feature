@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 <name>"
+    exit 1
+fi
+
+name=$1
+script_dir=$(dirname "$(readlink -f "$0")")
+target_dir="$script_dir/features/$name"
+target_file="$target_dir/user.nix"
+
+mkdir -p "$target_dir"
+
+cat <<EOF > "$target_file"
+{ config, lib, ... }:
+
+{
+  options.dotfiles.features.${name}.enable = lib.mkEnableOption "${name}";
+
+  config = lib.mkIf config.dotfiles.features.${name}.enable {
+    programs.${name} = {
+      enable = true;
+    };
+  };
+}
+EOF
+
+rel_target=$(realpath --relative-to=. "$target_file")
+rel_role=$(realpath --relative-to=. "$script_dir/roles/workstation/user.nix")
+rel_test=$(realpath --relative-to=. "$script_dir/test")
+
+echo "Created \`$rel_target\`"
+echo "Next, you must:"
+echo "  1. Enable the feature for your desired role - for example, in \`$rel_role\`"
+echo "  2. Stage \`$rel_target\` so that it is detected by nix"
+echo "  3. Run \`$rel_test\`"
+
