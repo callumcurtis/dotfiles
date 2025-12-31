@@ -22,6 +22,17 @@ to apply the configurations as a new system generation
 Afterward, you won't need to include `--flake .#<hostname>` in the `nixos-rebuild`
 commands (unless you want to use a different `<hostname>`).
 
+## Useful (But Excluded) Utilities
+
+Utilities for development have been excluded from these dotfiles. This way, project flakes are responsible
+for defining their own utilities. For example, `btop` is included in these dotfiles as it is useful in multiple contexts,
+even outside of development, whereas `hyperfine` has been excluded as it is typically used to benchmark a project during
+development, and is better defined in the project's flake.
+
+- [entr](https://github.com/eradman/entr): run arbitrary commands when files change
+- [flamegraph](https://github.com/callumcurtis/snippets/tree/main/topic/profiling/flamegraph): opinionated stack trace visualizer
+- [hyperfine](https://github.com/sharkdp/hyperfine): command-line benchmarking tool
+
 ## Planned Improvements
 
 See this repo's [issues](https://github.com/callumcurtis/dotfiles/issues) for plans on improvements to the configurations.
