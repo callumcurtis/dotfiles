@@ -41,10 +41,20 @@ See this repo's [issues](https://github.com/callumcurtis/dotfiles/issues) for pl
 
 ### In Neovim
 
+For simplicity, the examples below are not fully templated with different normal-mode commands.
+You can easily substitute, for example, `vS` with `dS` to achieve different effects.
+
+**normal mode**
+
 - `s<query>`: jump to query position
 - `cr<query>`: start `c` at query position
 - `vS`: start `v` using Treesitter selection
 - `vR<query>`: start `v` using Treesitter selection at query position
+- `ci"<BS>'<CTRL-p>`: replace double-quote delimiters with single-quote delimiters
+
+**insert mode**
+
+- `CTRL-P`: paste from system clipboard
 
 ## Troubleshooting
 
