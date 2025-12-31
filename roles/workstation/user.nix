@@ -46,6 +46,7 @@ let
     dotfiles.features.direnv.enable = true;
     dotfiles.features.zoxide.enable = true;
     dotfiles.features.eza.enable = true;
+    dotfiles.features.yazi.enable = true;
     dotfiles.features.ripgrep.enable = true;
     dotfiles.features.starship.enable = true;
     dotfiles.features.stylix.enable = true;
