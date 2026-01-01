@@ -10,6 +10,8 @@
     stylix.inputs.nixpkgs.follows = "nixpkgs";
     wallpapers.url = "git+ssh://git@github.com/callumcurtis/wallpapers";
     hyprland.url = "github:hyprwm/Hyprland";
+    metarepo.url = "github:callumcurtis/metarepo";
+    metarepo.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { ... }@inputs: let
@@ -18,6 +20,7 @@
       dotfiles.lib = import ./lib inputs;
       dotfiles.wallpapers = inputs.wallpapers;
       dotfiles.hyprland = inputs.hyprland;
+      dotfiles.metarepo = inputs.metarepo;
     };
   in {
     nixosConfigurations = {
