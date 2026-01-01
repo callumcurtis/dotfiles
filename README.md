@@ -2,24 +2,35 @@
 
 ![Screenshot of desktop](./docs/assets/desktop.png)
 
-This repo contains the [NixOS](https://github.com/NixOS/nixpkgs) and [Home Manager](https://github.com/nix-community/home-manager) configurations for my workstations and servers.
+My Linux configuration. An opinionated, modular, and ergonomic setup.
 
-NixOS and Home Manager allow me to declaratively configure my machines &mdash; enabling reusable and reproducible configurations, and easy rollbacks.
+## Under the Hood
+
+Uses the [Nix](https://nixos.org/guides/how-nix-works/) programming language and package manager for reproducible builds,
+[NixOS](https://nixos.org/guides/how-nix-works/) for declarative system configuration,
+and [Home Manager](https://nix-community.github.io/home-manager/) for declarative user environment configuration.
+
+These tools come with some advantages:
+
+- My system and user environments are fully described (explicitly and declaratively) within this repository - allowing my personal laptop, personal desktop, and work laptop to be configured identically
+- Whenever I make a change to my configuration, I can create a new [system generation](https://nixos.wiki/wiki/Overview_of_the_NixOS_Linux_distribution#Generations), and rollback to an old generation at any time (no risk of broken changes)
+- Using `nix-shell`, I can create temporary environments with any packages I want, without polluting my machine - this extends to projects, where project-specific Nix flakes can specify the exact packages required, with no risk of colliding with dependencies for other projects
+- Whereas other package managers require you to remember to manually uninstall unused packages, the declarative nature of NixOS and Home Manager means that unused packages are easier to identify, and when something is deleted from the configuration, it is automatically removed from the environment
 
 ## Getting Started
 
-The following instructions assume you're using NixOS. You can still use the home-manager configurations if you're using a different OS &mdash; instructions for this use case will be added below in the future.
+The following instructions assume you're using NixOS. You can still use the Home Manager configuration if you're using a different OS (instructions for this use case will be added in the future).
 
-1. clone this repo
-2. symlink your `/etc/nixos/` folder to the cloned repo
-3. update the [defaults](./constants/default.nix) as you like
-3. run `sudo nixos-rebuild test --flake .#<hostname> --override-input wallpapers <input>`
+1. Clone this repo
+2. Symlink your `/etc/nixos/` folder to the cloned repo
+3. Update the [defaults](./constants/default.nix) as you like
+3. Run `sudo nixos-rebuild test --flake .#<hostname> --override-input wallpapers <input>`
 &mdash; where `<hostname>` is the name of the host configuration you'd like to apply
 and `<input>` is an input specifier for your wallpapers &mdash;
-from the root of the cloned repo to temporarily apply the configurations
-4. once happy with the changes, use
+from the root of the cloned repo to temporarily apply the configuration
+4. Once happy with the changes, use
 `sudo nixos-rebuild switch --flake .#<hostname> --override-input wallpapers <input>`
-to apply the configurations as a new system generation
+to apply the configuration as a new system generation
 
 Afterward, you won't need to include `--flake .#<hostname>` in the `nixos-rebuild`
 commands (unless you want to use a different `<hostname>`).
@@ -35,10 +46,6 @@ development, and is better defined in the project's flake.
 - [flamegraph](https://github.com/callumcurtis/snippets/tree/main/topic/profiling/flamegraph): opinionated stack trace visualizer
 - [hyperfine](https://github.com/sharkdp/hyperfine): command-line benchmarking tool
 - [tokei](https://github.com/XAMPPRocky/tokei): code statistics
-
-## Planned Improvements
-
-See this repo's [issues](https://github.com/callumcurtis/dotfiles/issues) for plans on improvements to the configurations.
 
 ## Useful Keymaps
 
@@ -106,4 +113,8 @@ This will happen occasionally when dual-booting with Windows, as Windows updates
 9. During startup, enter your BIOS and swap the boot order to prioritize the NixOS boot manager, which should now appear as an option
 10. Enter your recovered NixOS installation, and run another `nixos-rebuild switch` (or just `./switch` if using these dotfiles) to apply your custom
   boot manager configuration (which will also add Windows to your NixOS boot manager options if you have enabled OS probing)
+
+## Planned Improvements
+
+See the [issues](https://github.com/callumcurtis/dotfiles/issues) for future improvements.
 
