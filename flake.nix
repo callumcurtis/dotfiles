@@ -17,6 +17,7 @@
     args = inputs // {
       dotfiles.lib = import ./lib inputs;
       dotfiles.wallpapers = inputs.wallpapers;
+      dotfiles.hyprland = inputs.hyprland;
     };
   in {
     nixosConfigurations = {

@@ -1,9 +1,9 @@
-{ nixpkgs, nixpkgs-unstable, home-manager, stylix, dotfiles, hyprland, ... }:
+{ nixpkgs, nixpkgs-unstable, home-manager, stylix, dotfiles, ... }:
 
 nixpkgs.lib.nixosSystem rec {
   system = "x86_64-linux";
   # Allows use of the dotfiles argument outside of config blocks in nixos modules.
-  specialArgs = { inherit dotfiles; inherit hyprland; };
+  specialArgs = { inherit dotfiles; };
   modules = [
     home-manager.nixosModules.home-manager
     stylix.nixosModules.stylix

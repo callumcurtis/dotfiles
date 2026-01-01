@@ -1,4 +1,4 @@
-{ config, lib, pkgs, hyprland, dotfiles, ... }:
+{ config, lib, pkgs, dotfiles, ... }:
 
 {
   options.dotfiles.features.hyprland = {
@@ -59,8 +59,8 @@
 
     wayland.windowManager.hyprland = {
       enable = true;
-      package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      portalPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+      package = dotfiles.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      portalPackage = dotfiles.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
       systemd.variables = ["--all"];
       settings = {
         "$mod" = "SUPER";
