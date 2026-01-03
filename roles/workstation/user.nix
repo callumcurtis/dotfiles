@@ -58,6 +58,7 @@ let
     dotfiles.features.bat.enable = true;
     dotfiles.features.tldr.enable = true;
     dotfiles.features.metarepo.enable = true;
+    dotfiles.features.claude-code.enable = true;
     dotfiles.features.git = {
       enable = true;
       user.name = config.dotfiles.constants.name.full;
