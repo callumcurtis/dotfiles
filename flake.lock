@@ -577,11 +577,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1767819259,
-        "narHash": "sha256-p4b6AI0zQyzplBcN5iT0lsNf8CephttFQGPOCf8LXYw=",
+        "lastModified": 1767819818,
+        "narHash": "sha256-Q3JnhUFqAXOF8euulspA3jgkgO3A10E7CHZjh+BmPVw=",
         "owner": "callumcurtis",
         "repo": "metarepo",
-        "rev": "3bfbb477378f596d51932e528a3db8e0e782e850",
+        "rev": "a2c6bc2977023b486adbbee747cfa3f28ba5375d",
         "type": "github"
       },
       "original": {
