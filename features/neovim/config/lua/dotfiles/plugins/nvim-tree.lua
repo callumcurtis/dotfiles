@@ -48,6 +48,13 @@ return {
         folders_first = true,
         files_first = false,
       },
+      filters = {
+        git_ignored = false,
+        custom = {
+          "^\\.git$",
+          "^\\.direnv$",
+        },
+      },
       renderer = {
         symlink_destination = true,
         indent_markers = {
