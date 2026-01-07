@@ -5,7 +5,6 @@ return {
     "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
-    local lspconfig = require("lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local icons = require("dotfiles.icons")
     local keymap = vim.keymap
@@ -82,7 +81,7 @@ return {
 
     -- Setup language servers
     -- :h lspconfig-all
-    lspconfig.lua_ls.setup {
+    vim.lsp.config('lua_ls', {
       capabilities = capabilities,
       on_init = function(client)
         if client.workspace_folders then
@@ -107,13 +106,13 @@ return {
       settings = {
         Lua = {}
       },
-    }
+    })
 
-    lspconfig.pyright.setup {}
-    lspconfig.nil_ls.setup {}
-    lspconfig.bashls.setup{}
-    lspconfig.rust_analyzer.setup {}
-    lspconfig.ts_ls.setup {}
-    lspconfig.clangd.setup {}
+    vim.lsp.config('pyright', {})
+    vim.lsp.config('nil_ls', {})
+    vim.lsp.config('bashls',{})
+    vim.lsp.config('rust_analyzer', {})
+    vim.lsp.config('ts_ls', {})
+    vim.lsp.config('clangd', {})
   end
 }
