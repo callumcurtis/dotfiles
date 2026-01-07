@@ -19,7 +19,10 @@ let
     dotfiles.features.hyprland = {
       enable = true;
       monitors = options.monitors;
-      exec-once = options.exec-once;
+      exec-once = options.exec-once ++ [
+        "hyprctl dispatch exec ${terminal}"
+        "hyprctl dispatch exec ${browser}"
+      ];
       inherit browser terminal;
     };
 
