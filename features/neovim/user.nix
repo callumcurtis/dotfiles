@@ -48,7 +48,6 @@
         which-key-nvim
         gitsigns-nvim
         flash-nvim
-        telescope-live-grep-args-nvim
       ]) ++ [ telescope-recent-files ];
 
       extraPackages = with pkgs; [

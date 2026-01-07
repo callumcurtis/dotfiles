@@ -3,7 +3,6 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "smartpde/telescope-recent-files",
-    "nvim-telescope/telescope-live-grep-args.nvim",
     "nvim-telescope/telescope-fzf-native.nvim",
     "nvim-tree/nvim-web-devicons",
     "folke/todo-comments.nvim",
@@ -15,6 +14,16 @@ return {
     telescope.setup({
       defaults = {
         path_display = { "truncate" },
+        vimgrep_arguments = {
+          "rg",
+          "--hidden",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case"
+        },
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous,
@@ -38,7 +47,7 @@ return {
 
     keymap.set("n", "<leader>ff", "<cmd>Telescope find_files hidden=true <cr>", { desc = "Find files" })
     keymap.set("n", "<leader>fr", "<cmd>Telescope recent_files<cr>", { desc = "Find recent files" })
-    keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep_args<cr>", { desc = "Find string" })
+    keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string" })
     keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>", { desc = "Find diagnostics" })
     keymap.set("n", "<leader>fw", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", { desc = "Find symbols in workspace" })
     keymap.set("n", "<leader>fb", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "Find symbols in buffer" })
