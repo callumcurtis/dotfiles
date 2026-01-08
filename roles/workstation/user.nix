@@ -20,8 +20,11 @@ let
       enable = true;
       monitors = options.monitors;
       exec-once = options.exec-once ++ [
-        "hyprctl dispatch exec ${terminal}"
-        "hyprctl dispatch exec ${browser}"
+        ((lib.strings.optionalString
+          (options.initialWorkspace != "")
+          "hyprctl dispatch workspace ${options.initialWorkspace} && ")
+        + "hyprctl dispatch exec ${terminal} && "
+        + "hyprctl dispatch exec ${browser}")
       ];
       inherit browser terminal;
     };
@@ -76,7 +79,10 @@ in
       options.roles.workstation = {
         enable = lib.mkEnableOption "workstation-user-role";
         monitors = dotfiles.lib.mkTypedOptionWithDefault (lib.types.listOf lib.types.str) [];
+        # TODO: support passing a callback, parameterized by $browser and $terminal, to build exec-once
+        # (instead of passing in initialWorkspace separately and starting $browser and $terminal in this file)
         exec-once = dotfiles.lib.mkTypedOptionWithDefault (lib.types.listOf lib.types.str) [];
+        initialWorkspace = dotfiles.lib.mkTypedOptionWithDefault lib.types.str "";
       };
     });
   };
