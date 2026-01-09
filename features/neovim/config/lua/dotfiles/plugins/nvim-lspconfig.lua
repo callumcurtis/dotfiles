@@ -81,7 +81,13 @@ return {
 
     -- Setup language servers
     -- :h lspconfig-all
-    vim.lsp.config('lua_ls', {
+
+    config_and_enable = function(name, config)
+      vim.lsp.config(name, config)
+      vim.lsp.enable(name)
+    end
+
+    config_and_enable('lua_ls', {
       capabilities = capabilities,
       on_init = function(client)
         if client.workspace_folders then
@@ -108,11 +114,11 @@ return {
       },
     })
 
-    vim.lsp.config('pyright', {})
-    vim.lsp.config('nil_ls', {})
-    vim.lsp.config('bashls',{})
-    vim.lsp.config('rust_analyzer', {})
-    vim.lsp.config('ts_ls', {})
-    vim.lsp.config('clangd', {})
+    config_and_enable('pyright', {})
+    config_and_enable('nil_ls', {})
+    config_and_enable('bashls',{})
+    config_and_enable('rust_analyzer', {})
+    config_and_enable('ts_ls', {})
+    config_and_enable('clangd', {})
   end
 }
