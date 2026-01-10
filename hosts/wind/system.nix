@@ -4,8 +4,8 @@ let
   # Assign usernames to variables to avoid typos between usages.
   callumcurtis = "callumcurtis";
   monitors = [
-    "DP-1, 2560x1440@165, auto, 1, transform, 1"
-    "DP-2, 2560x1440@165, auto-center-right, 1"
+    "DP-1, 2560x1440@165, 0x0, 1, transform, 1"
+    "DP-2, 2560x1440@165, 1440x560, 1"
   ];
   initialWorkspace = "2";
 in
