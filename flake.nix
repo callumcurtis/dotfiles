@@ -28,6 +28,8 @@
     nixosConfigurations = {
       mist = hosts.mist args;
       wind = hosts.wind args;
+    };
+    darwinConfigurations = {
       gale = hosts.gale args;
     };
   };
