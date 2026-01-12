@@ -1,11 +1,11 @@
 { darwin, nixpkgs-unstable, home-manager, stylix, dotfiles, ... }:
 
 darwin.lib.darwinSystem rec {
-  # Allows use of the dotfiles argument outside of config blocks in nixos modules.
+  # Allows use of the dotfiles argument outside of config blocks in darwin modules.
   specialArgs = { inherit dotfiles; };
   modules = [
-    home-manager.nixosModules.home-manager
-    stylix.nixosModules.stylix
+    home-manager.darwinModules.home-manager
+    stylix.darwinModules.stylix
     ../common.nix
     ./system.nix
     # Allows use of the given arguments outside of config blocks in home-manager modules.
