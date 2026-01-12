@@ -6,7 +6,7 @@ let
 in
 {
   imports = [
-    ../../features/system.nix
+    ../../features/nixos.nix
     ../../devices
     ../../roles
     ../../constants
