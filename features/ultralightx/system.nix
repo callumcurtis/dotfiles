@@ -1,9 +1,9 @@
 { config, lib, ... }:
 
 {
-  options.dotfiles.devices.ultralightx.enable = lib.mkEnableOption "ultralightx";
+  options.dotfiles.features.ultralightx.enable = lib.mkEnableOption "ultralightx";
 
-  config = lib.mkIf config.dotfiles.devices.ultralightx.enable {
+  config = lib.mkIf config.dotfiles.features.ultralightx.enable {
     # Allows XPANEL to modify UltralightX settings from the browser (if given permission)
     services.udev.extraRules = ''
       # Rules from https://github.com/teamfinalmouse/xpanel-linux-permissions/blob/02a498fc9c9f39e73fa8477e3af1f2032812e98f/99-finalmouse.rules

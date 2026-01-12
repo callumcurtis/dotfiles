@@ -6,15 +6,14 @@ let
 in
 {
   imports = [
-    ../../features/nixos.nix
-    ../../devices
+    ../../features/system.nix
     ../../roles
     ../../constants
   ];
 
   networking.hostName = "mist";
   dotfiles.features.multi-boot.windows.enable = true;
-  dotfiles.devices.ultralightx.enable = true;
+  dotfiles.features.ultralightx.enable = true;
 
   # Don't forget to set a password with ‘passwd’.
   users.users.${callumcurtis} = {

@@ -6,14 +6,12 @@ let
 in
 {
   imports = [
-    ../../features/darwin.nix
-    ../../devices
+    ../../features/system.nix
     ../../roles
     ../../constants
   ];
 
   networking.hostName = "gale";
-  dotfiles.devices.ultralightx.enable = true;
 
   # Assign roles to users and the system.
   dotfiles.system.roles.workstation.enable = true;
