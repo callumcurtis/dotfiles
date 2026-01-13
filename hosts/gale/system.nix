@@ -1,4 +1,4 @@
-{ self, ... }:
+{ self, config, ... }:
 
 let
   # Assign usernames to variables to avoid typos between usages.
@@ -12,6 +12,12 @@ in
   ];
 
   networking.hostName = "gale";
+
+  users.users.${callumcurtis} = {
+    description = config.dotfiles.constants.name.full;
+    home = "/Users/${callumcurtis}";
+    name = callumcurtis;
+  };
 
   # Assign roles to users and the system.
   dotfiles.system.roles.workstation.enable = true;
