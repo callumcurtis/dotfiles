@@ -19,13 +19,6 @@
         init.defaultBranch = "main";
         push.default = "simple";
       };
-      delta = {
-        enable = true;
-        options = {
-          side-by-side = true;
-          dark = true;
-        };
-      };
     };
 
     home.shellAliases = {
