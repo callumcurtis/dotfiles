@@ -20,5 +20,10 @@
         "--subst-var-by" "default_shell" "${config.dotfiles.features.zellij.shell}"
       ];
     };
+
+    home.shellAliases = {
+      rnt = "zellij action rename-tab";
+      rnp = "zellij action rename-pane";
+    };
   };
 }
