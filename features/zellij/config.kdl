@@ -25,6 +25,7 @@ keybinds {
         bind "Alt t" { SwitchToMode "tab"; }
         bind "Alt s" { SwitchToMode "scroll"; }
         bind "Alt m" { SwitchToMode "move"; }
+        bind "Alt g" { SwitchToMode "locked"; }
         bind "Alt n" { NewPane; }
         bind "Alt h" { MoveFocusOrTab "Left"; }
         bind "Alt l" { MoveFocusOrTab "Right"; }
@@ -139,7 +140,9 @@ keybinds {
         bind "Alt j" "Alt Down" { MoveFocus "Down"; }
         bind "Alt k" "Alt Up" { MoveFocus "Up"; }
     }
-    locked clear-defaults=true {}
+    locked clear-defaults=true {
+        bind "Alt g" { SwitchToMode "normal"; }
+    }
     renamepane clear-defaults=true {}
     renametab clear-defaults=true {}
     session clear-defaults=true {}
