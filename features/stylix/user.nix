@@ -5,7 +5,6 @@
 {
   options.dotfiles.features.stylix = {
     enable = lib.mkEnableOption "stylix";
-    wallpaper = dotfiles.lib.mkTypedOption lib.types.path;
     theme = dotfiles.lib.mkTypedOption lib.types.path;
   };
 
@@ -16,7 +15,6 @@
         # Avoids: extension “user-theme@gnome-shell-extensions.gcampax.github.com” does not exist
         gnome.enable = false;
       };
-      image = config.dotfiles.features.stylix.wallpaper;
       polarity = "dark";
       base16Scheme = config.dotfiles.features.stylix.theme;
       fonts = {
