@@ -70,9 +70,10 @@ You can easily substitute, for example, `vS` with `dS` to achieve different effe
 
 - `CTRL-P`: paste from system clipboard
 
-### In Kitty
+### In Fish
 
 - `<ALT-e>`: edit the command in an nvim buffer
+- `<CTRL-X>`: copy the current command line to the system clipboard
 
 ## Troubleshooting
 
