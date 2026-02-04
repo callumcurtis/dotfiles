@@ -11,7 +11,6 @@
     programs.zellij = {
       enable = true;
       enableFishIntegration = config.dotfiles.features.zellij.autoStartIn.fish;
-      exitShellOnExit = true;
     };
 
     xdg.configFile."zellij/config.kdl".source = pkgs.substitute {
