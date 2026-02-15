@@ -1,4 +1,4 @@
-{ config, lib, dotfiles, isDarwin, ... }:
+{ config, pkgs, lib, dotfiles, isDarwin, ... }:
 
 {
   options.dotfiles.features.aerospace = {
@@ -8,6 +8,9 @@
   };
 
   config = lib.optionalAttrs isDarwin (lib.mkIf config.dotfiles.features.aerospace.enable {
+    home.packages = with pkgs; [
+      maccy
+    ];
     programs.aerospace = {
       enable = true;
       launchd.enable = true;
