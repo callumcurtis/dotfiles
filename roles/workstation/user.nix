@@ -57,7 +57,10 @@ let
     dotfiles.features.fzf.enable = true;
     dotfiles.features.ripgrep.enable = true;
     dotfiles.features.starship.enable = true;
-    dotfiles.features.stylix.enable = true;
+    dotfiles.features.stylix = {
+      enable = true;
+      theme = config.dotfiles.constants.theme;
+    };
     dotfiles.features.glow.enable = true;
     dotfiles.features.bat.enable = true;
     dotfiles.features.tldr.enable = true;
