@@ -2,7 +2,7 @@
 
 let
   metarepo = pkgs.writeShellScriptBin "metarepo" ''
-    exec ${dotfiles.metarepo.apps.${pkgs.system}.metarepo.program} "$@"
+    exec ${dotfiles.metarepo.apps.${pkgs.stdenv.hostPlatform.system}.metarepo.program} "$@"
   '';
 in
 {
