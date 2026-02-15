@@ -1,9 +1,9 @@
-{ config, lib, pkgs, isDarwin ? false, ... }:
+{ config, lib, pkgs, isNixos, ... }:
 
 {
   options.dotfiles.features.gnome.enable = lib.mkEnableOption "gnome";
 
-  config = lib.optionalAttrs (!isDarwin) (lib.mkIf config.dotfiles.features.gnome.enable {
+  config = lib.optionalAttrs isNixos (lib.mkIf config.dotfiles.features.gnome.enable {
     # Enable the X11 windowing system.
     services.xserver.enable = true;
     services.xserver.excludePackages = with pkgs; [ xterm ];

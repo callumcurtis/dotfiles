@@ -1,4 +1,4 @@
-{ config, lib, dotfiles, isDarwin ? false, ... }:
+{ config, lib, dotfiles, isNixos, ... }:
 
 {
   options.dotfiles.features.time = {
@@ -6,7 +6,7 @@
     timeZone = dotfiles.lib.mkTypedOption lib.types.str;
   };
 
-  config = lib.optionalAttrs (!isDarwin) (lib.mkIf config.dotfiles.features.time.enable {
+  config = lib.optionalAttrs isNixos (lib.mkIf config.dotfiles.features.time.enable {
     time.timeZone = config.dotfiles.features.time.timeZone;
   });
 }

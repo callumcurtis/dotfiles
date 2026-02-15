@@ -2,7 +2,7 @@
 
 nixpkgs.lib.nixosSystem rec {
   # Allows use of the dotfiles argument outside of config blocks in nixos modules.
-  specialArgs = { inherit dotfiles; };
+  specialArgs = { inherit dotfiles; isNixos = true; isDarwin = false; };
   modules = [
     home-manager.nixosModules.home-manager
     stylix.nixosModules.stylix

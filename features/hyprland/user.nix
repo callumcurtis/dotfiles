@@ -1,4 +1,4 @@
-{ config, lib, pkgs, dotfiles, isDarwin ? false, ... }:
+{ config, lib, pkgs, dotfiles, isNixos, ... }:
 
 {
   options.dotfiles.features.hyprland = {
@@ -9,7 +9,7 @@
     exec-once = dotfiles.lib.mkTypedOptionWithDefault (lib.types.listOf lib.types.str) [];
   };
 
-  config = lib.optionalAttrs (!isDarwin) (lib.mkIf config.dotfiles.features.hyprland.enable {
+  config = lib.optionalAttrs isNixos (lib.mkIf config.dotfiles.features.hyprland.enable {
     home.packages = with pkgs; [
       brightnessctl
       cliphist

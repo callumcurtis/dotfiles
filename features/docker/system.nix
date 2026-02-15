@@ -1,4 +1,4 @@
-{ config, lib, isDarwin ? false, ... }:
+{ config, lib, isNixos, ... }:
 
 {
   options.dotfiles.features.docker = {
@@ -11,7 +11,7 @@
     };
   };
 
-  config = lib.optionalAttrs (!isDarwin) (lib.mkIf config.dotfiles.features.docker.enable {
+  config = lib.optionalAttrs isNixos (lib.mkIf config.dotfiles.features.docker.enable {
     virtualisation.docker.rootless = {
       enable = true;
       setSocketVariable = true;

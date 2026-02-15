@@ -1,6 +1,6 @@
 # NOTE: the stylix module must be added to your host's list of NixOS modules.
 
-{ pkgs, config, lib, dotfiles, isDarwin ? false, ... }:
+{ pkgs, config, lib, dotfiles, isNixos, ... }:
 
 {
   options.dotfiles.features.stylix = {
@@ -35,7 +35,7 @@
           name = "DejaVu Serif";
         };
       };
-    } // lib.optionalAttrs (!isDarwin) {
+    } // lib.optionalAttrs isNixos {
       cursor = {
         package = pkgs.bibata-cursors;
         name = "Bibata-Original-Ice";
