@@ -9,7 +9,6 @@
     # dotfiles.features.grub.enable = true;
     # dotfiles.features.networking.enable = true;
     # dotfiles.features.printing.enable = true;
-    # dotfiles.features.audio.enable = true;
     dotfiles.features.flakes.enable = true;
     dotfiles.features.ssh.enable = true;
     dotfiles.features.fish.enable = true;

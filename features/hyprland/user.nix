@@ -17,6 +17,7 @@
       hyprpicker
       hyprpolkitagent
       dunst
+      pavucontrol
       hyprshot
       networkmanagerapplet
     ];

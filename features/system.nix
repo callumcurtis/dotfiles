@@ -9,7 +9,6 @@ in
       (path:
         let dirpath = dirOf path;
         in !(builtins.elem dirpath [
-          ./audio
           ./gnome
           ./grub
           ./hyprland

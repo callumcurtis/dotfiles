@@ -28,8 +28,6 @@ let
      #  inherit browser terminal;
      #};
 
-    # dotfiles.features.audio.enable = true;
-
     # GUI programs.
     dotfiles.features.google-chrome.enable = true;
 
