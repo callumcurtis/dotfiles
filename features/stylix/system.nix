@@ -35,6 +35,7 @@
           name = "DejaVu Serif";
         };
       };
+    } // lib.optionalAttrs (!config.nixpkgs.hostPlatform.isDarwin) {
       cursor = {
         package = pkgs.bibata-cursors;
         name = "Bibata-Original-Ice";
