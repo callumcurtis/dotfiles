@@ -4,12 +4,23 @@ let
   shell = "${pkgs.fish}/bin/fish";
   terminal = "${pkgs.kitty}/bin/kitty";
   browser = "${pkgs.google-chrome}/bin/google-chrome-stable";
+in
+{
+  imports = [
+    ../../features/user.nix
+    ../../constants
+  ];
 
-  hm = options: {
-    imports = [
-      ../../features/user.nix
-    ];
+  options.dotfiles.roles.workstation = {
+    enable = lib.mkEnableOption "workstation-user-role";
+    monitors = dotfiles.lib.mkTypedOptionWithDefault (lib.types.listOf lib.types.str) [];
+    # TODO: support passing a callback, parameterized by $browser and $terminal, to build exec-once
+    # (instead of passing in initialWorkspace separately and starting $browser and $terminal in this file)
+    exec-once = dotfiles.lib.mkTypedOptionWithDefault (lib.types.listOf lib.types.str) [];
+    initialWorkspace = dotfiles.lib.mkTypedOptionWithDefault lib.types.str "";
+  };
 
+  config = lib.mkIf config.dotfiles.roles.workstation.enable {
     # Meta.
     dotfiles.features.home-manager.enable = true;
 
@@ -17,26 +28,31 @@ let
     dotfiles.features.gnome.enable = true; # keep GNOME around for X11 applications
     dotfiles.features.hyprland = {
       enable = true;
-      monitors = options.monitors;
-      exec-once = options.exec-once ++ [
+      monitors = config.dotfiles.roles.workstation.monitors;
+      exec-once = config.dotfiles.roles.workstation.exec-once ++ [
         ((lib.strings.optionalString
-          (options.initialWorkspace != "")
-          "hyprctl dispatch workspace ${options.initialWorkspace} && ")
+          (config.dotfiles.roles.workstation.initialWorkspace != "")
+          "hyprctl dispatch workspace ${config.dotfiles.roles.workstation.initialWorkspace} && ")
         + "hyprctl dispatch exec ${terminal} && "
         + "hyprctl dispatch exec ${browser}")
       ];
       inherit browser terminal;
     };
+    dotfiles.features.aerospace = {
+      enable = true;
+      inherit terminal browser;
+    };
 
     # GUI programs.
     dotfiles.features.google-chrome.enable = true;
     dotfiles.features.zoom.enable = true;
-
-    # Terminal configuration.
+    dotfiles.features.cursor.enable = true;
     dotfiles.features.kitty = {
       enable = true;
       inherit shell;
     };
+
+    # Terminal configuration.
     dotfiles.features.fish.enable = true;
     dotfiles.features.zellij = {
       enable = true;
@@ -46,7 +62,6 @@ let
       enable = true;
       asDefaultEditor = true;
     };
-    dotfiles.features.cursor.enable = true;
     dotfiles.features.direnv.enable = true;
     dotfiles.features.zoxide.enable = true;
     dotfiles.features.eza.enable = true;
@@ -74,26 +89,4 @@ let
       user.email = config.dotfiles.constants.email.github.noreply;
     };
   };
-in
-{
-  options.dotfiles.users = lib.mkOption {
-    default = {};
-    type = lib.types.attrsOf (lib.types.submodule {
-      options.roles.workstation = {
-        enable = lib.mkEnableOption "workstation-user-role";
-        monitors = dotfiles.lib.mkTypedOptionWithDefault (lib.types.listOf lib.types.str) [];
-        # TODO: support passing a callback, parameterized by $browser and $terminal, to build exec-once
-        # (instead of passing in initialWorkspace separately and starting $browser and $terminal in this file)
-        exec-once = dotfiles.lib.mkTypedOptionWithDefault (lib.types.listOf lib.types.str) [];
-        initialWorkspace = dotfiles.lib.mkTypedOptionWithDefault lib.types.str "";
-      };
-    });
-  };
-
-  config = {
-    dotfiles.features.home-manager.users = builtins.mapAttrs
-      (user: options: lib.mkIf options.roles.workstation.enable (hm options.roles.workstation))
-      (config.dotfiles.users);
-  };
 }
-
