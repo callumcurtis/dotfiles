@@ -5,7 +5,7 @@
 
   config = lib.mkIf config.dotfiles.features.cursor.enable {
     home.packages = with pkgs; [
-      unstable.code-cursor-fhs
+      unstable.code-cursor
     ];
   };
 }
