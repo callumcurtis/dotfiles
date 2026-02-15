@@ -14,19 +14,19 @@ let
     dotfiles.features.home-manager.enable = true;
 
     # Desktop environment.
-     #dotfiles.features.gnome.enable = true; # keep GNOME around for X11 applications
-     #dotfiles.features.hyprland = {
-     #  enable = true;
-     #  monitors = options.monitors;
-     #  exec-once = options.exec-once ++ [
-     #    ((lib.strings.optionalString
-     #      (options.initialWorkspace != "")
-     #      "hyprctl dispatch workspace ${options.initialWorkspace} && ")
-     #    + "hyprctl dispatch exec ${terminal} && "
-     #    + "hyprctl dispatch exec ${browser}")
-     #  ];
-     #  inherit browser terminal;
-     #};
+    dotfiles.features.gnome.enable = true; # keep GNOME around for X11 applications
+    dotfiles.features.hyprland = {
+      enable = true;
+      monitors = options.monitors;
+      exec-once = options.exec-once ++ [
+        ((lib.strings.optionalString
+          (options.initialWorkspace != "")
+          "hyprctl dispatch workspace ${options.initialWorkspace} && ")
+        + "hyprctl dispatch exec ${terminal} && "
+        + "hyprctl dispatch exec ${browser}")
+      ];
+      inherit browser terminal;
+    };
 
     # GUI programs.
     dotfiles.features.google-chrome.enable = true;

@@ -1,10 +1,10 @@
-{ config, lib, ... }:
+{ config, lib, isDarwin ? false, ... }:
 
 {
   options.dotfiles.features.networking.enable = lib.mkEnableOption "networking";
 
-  config = lib.mkIf config.dotfiles.features.networking.enable {
+  config = lib.optionalAttrs (!isDarwin) (lib.mkIf config.dotfiles.features.networking.enable {
     networking.networkmanager.enable = true;
-  };
+  });
 }
 

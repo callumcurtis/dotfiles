@@ -1,9 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, isDarwin ? false, ... }:
 
 {
   options.dotfiles.features.gnome.enable = lib.mkEnableOption "gnome";
 
-  config = lib.mkIf config.dotfiles.features.gnome.enable {
+  config = lib.optionalAttrs (!isDarwin) (lib.mkIf config.dotfiles.features.gnome.enable {
     # Enable the X11 windowing system.
     services.xserver.enable = true;
     services.xserver.excludePackages = with pkgs; [ xterm ];
@@ -19,5 +19,5 @@
       variant = "";
       options = "caps:escape";
     };
-  };
+  });
 }

@@ -1,4 +1,4 @@
-{ config, lib, dotfiles, ... }:
+{ config, lib, dotfiles, isDarwin ? false, ... }:
 
 {
   options.dotfiles.features.internationalization = {
@@ -6,7 +6,7 @@
     locale = dotfiles.lib.mkTypedOption lib.types.str;
   };
 
-  config = lib.mkIf config.dotfiles.features.internationalization.enable {
+  config = lib.optionalAttrs (!isDarwin) (lib.mkIf config.dotfiles.features.internationalization.enable {
     i18n.defaultLocale = config.dotfiles.features.internationalization.locale;
-  };
+  });
 }
