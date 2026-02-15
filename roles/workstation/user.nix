@@ -30,6 +30,7 @@ let
 
     # GUI programs.
     dotfiles.features.google-chrome.enable = true;
+    dotfiles.features.zoom.enable = true;
 
     # Terminal configuration.
     dotfiles.features.kitty = {
