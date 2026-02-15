@@ -14,6 +14,10 @@
     # changes in each release.
     home.stateVersion = "23.11";
 
+    # For Spotlight inter-op.
+    targets.darwin.copyApps.enable = true;
+    targets.darwin.linkApps.enable = false;
+
     # Let home Manager install and manage itself.
     programs.home-manager.enable = true;
   };
