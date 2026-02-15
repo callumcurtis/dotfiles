@@ -5,7 +5,7 @@
 
   config = lib.mkIf config.dotfiles.features.google-chrome.enable {
     home.packages = with pkgs; [
-      google-chrome
+      unstable.google-chrome
     ];
   };
 }
