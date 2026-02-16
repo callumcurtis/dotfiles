@@ -28,8 +28,10 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 keymap.set("n", "<C-i>", "<C-S-i>") -- avoids conflict between <TAB> and <C-i>
 
 -- paste
-keymap.set('i', '<C-p>', '<C-r>+', { noremap = true, silent = true, desc = "Paste from system clipboard" })
-keymap.set('i', '<C-n>', '<Nop>', { noremap = true, silent = true, desc = "Disable default CTRL-N" })
+keymap.set('i', '<C-p>', '<C-r>+', { desc = "Paste from system clipboard" })
+keymap.set('i', '<C-n>', '<Nop>', { desc = "Disable default CTRL-N" })
+keymap.set('x', 'p', 'P', { desc = "Paste without yanking" })
+keymap.set('x', 'P', 'p', { desc = "Swap selection with register" })
 
 -- page up/down
 keymap.set("n", "<C-d>", "<C-d>zz")
