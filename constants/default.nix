@@ -4,6 +4,7 @@ let
   mk = dotfiles.lib.mkConstantOption;
 in {
   options.dotfiles.constants = {
+    username = mk "callumcurtis";
     name.full = mk "Callum Curtis";
     email.github.noreply = mk "105407637+callumcurtis@users.noreply.github.com";
     timeZone = mk "Canada/Pacific";

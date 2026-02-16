@@ -1,9 +1,5 @@
 { config, ... }:
 
-let
-  # Assign usernames to variables to avoid typos between usages.
-  callumcurtis = "callumcurtis";
-in
 {
   imports = [
     ../../features/system.nix
@@ -16,7 +12,7 @@ in
   dotfiles.features.ultralightx.enable = true;
 
   # Don't forget to set a password with ‘passwd’.
-  users.users.${callumcurtis} = {
+  users.users.${config.dotfiles.constants.username} = {
     isNormalUser = true;
     description = config.dotfiles.constants.name.full;
     extraGroups = [ "networkmanager" "wheel" "video" ];
@@ -24,7 +20,7 @@ in
 
   # Assign roles to users and the system.
   dotfiles.system.roles.workstation.enable = true;
-  dotfiles.users.${callumcurtis}.roles.workstation.enable = true;
+  dotfiles.users.${config.dotfiles.constants.username}.roles.workstation.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

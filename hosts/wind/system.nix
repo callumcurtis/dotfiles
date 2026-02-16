@@ -2,7 +2,6 @@
 
 let
   # Assign usernames to variables to avoid typos between usages.
-  callumcurtis = "callumcurtis";
   monitors = [
     "DP-1, 2560x1440@165, 0x0, 1, transform, 1"
     "DP-2, 2560x1440@165, 1440x560, 1"
@@ -21,7 +20,7 @@ in
   dotfiles.features.ultralightx.enable = true;
 
   # Don't forget to set a password with ‘passwd’.
-  users.users.${callumcurtis} = {
+  users.users.${config.dotfiles.constants.username} = {
     isNormalUser = true;
     description = config.dotfiles.constants.name.full;
     extraGroups = [ "networkmanager" "wheel" "video" ];
@@ -29,7 +28,7 @@ in
 
   # Assign roles to users and the system.
   dotfiles.system.roles.workstation.enable = true;
-  dotfiles.users.${callumcurtis}.roles.workstation = {
+  dotfiles.users.${config.dotfiles.constants.username}.roles.workstation = {
     enable = true;
     inherit monitors initialWorkspace;
   };
