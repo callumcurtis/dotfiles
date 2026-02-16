@@ -16,7 +16,8 @@ darwin.lib.darwinSystem rec {
         nixpkgs.overlays = [
           (final: prev: {
             unstable = import nixpkgs-unstable {
-              inherit (final) system config;
+              inherit (final) config;
+              system = final.stdenv.hostPlatform.system;
             };
           })
         ];
