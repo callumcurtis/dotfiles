@@ -43,8 +43,8 @@
           alt-t = "exec-and-forget open -a \"${config.dotfiles.features.aerospace.terminal}\"";
           alt-v = "exec-and-forget open -a \"Maccy\""; # Clipboard manager for macOS
           alt-c = "exec-and-forget open -a \"Digital Color Meter\""; # Color picker built into macOS
-          alt-s = "exec-and-forget screencapture -i ~/Desktop/screenshot.png"; # Screenshot region
-          alt-shift-s = "exec-and-forget screencapture -w ~/Desktop/screenshot.png"; # Screenshot window
+          alt-s = "exec-and-forget screencapture -ic"; # Screenshot region
+          alt-shift-s = "exec-and-forget screencapture -wc"; # Screenshot window
 
           # Modify window
           alt-q = "close";
