@@ -12,9 +12,9 @@
   config = lib.mkIf config.dotfiles.features.git.enable {
     programs.git = {
       enable = true;
-      userName = config.dotfiles.features.git.user.name;
-      userEmail = config.dotfiles.features.git.user.email;
-      extraConfig = {
+      settings = {
+        user.name = config.dotfiles.features.git.user.name;
+        user.email = config.dotfiles.features.git.user.email;
         rerere.enabled = true;
         init.defaultBranch = "main";
         push.default = "simple";
