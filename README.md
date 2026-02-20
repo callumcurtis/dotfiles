@@ -75,6 +75,10 @@ You can easily substitute, for example, `vS` with `dS` to achieve different effe
 - `<ALT-e>`: edit the command in an nvim buffer
 - `<CTRL-X>`: copy the current command line to the system clipboard
 
+### In Zellij
+
+- `<ALT-s>` -> `e`: open the scrollback buffer in Neovim
+
 ## Troubleshooting
 
 **"no space left on device"**
