@@ -39,3 +39,6 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "<C-f>", "<C-f>zz")
 keymap.set("n", "<C-b>", "<C-b>zz")
 
+-- yank relative file path
+keymap.set("n", "<leader>yp", ":let @+ = expand('%')<CR>", { desc = "Yank relative file path", silent = true })
+
