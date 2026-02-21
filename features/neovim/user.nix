@@ -30,6 +30,7 @@
         cmp-buffer
         cmp-nvim-lsp
         cmp-path
+        fzf-vim
         indent-blankline-nvim
         lspkind-nvim
         lualine-nvim
