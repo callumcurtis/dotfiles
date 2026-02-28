@@ -51,6 +51,7 @@ in
       enable = true;
       inherit shell;
     };
+    dotfiles.features.zen.enable = true;
 
     # Terminal configuration.
     dotfiles.features.coreutils.enable = true;

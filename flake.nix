@@ -14,6 +14,13 @@
     hyprland.url = "github:hyprwm/Hyprland";
     metarepo.url = "github:callumcurtis/metarepo";
     metarepo.inputs.nixpkgs.follows = "nixpkgs";
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs-unstable";
+        home-manager.follows = "home-manager";
+      };
+    };
   };
 
   outputs = { ... }@inputs: let

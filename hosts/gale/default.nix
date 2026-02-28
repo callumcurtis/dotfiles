@@ -1,8 +1,8 @@
-{ darwin, nixpkgs-unstable, home-manager, stylix, dotfiles, self, ... }:
+{ darwin, nixpkgs-unstable, home-manager, stylix, dotfiles, self, zen-browser, ... }:
 
 darwin.lib.darwinSystem rec {
   # Allows use of the dotfiles argument outside of config blocks in darwin modules.
-  specialArgs = { inherit dotfiles self; isNixos = false; isDarwin = true; };
+  specialArgs = { inherit dotfiles self zen-browser; isNixos = false; isDarwin = true; };
   modules = [
     home-manager.darwinModules.home-manager
     stylix.darwinModules.stylix
