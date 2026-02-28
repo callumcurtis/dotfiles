@@ -53,7 +53,7 @@ in
     };
 
     # Terminal configuration.
-    dotfiles.features.coreutils.enable = true;
+    dotfiles.features.make-darwin-linux-like.enable = true;
     dotfiles.features.fish.enable = true;
     dotfiles.features.zellij = {
       enable = true;
