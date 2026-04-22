@@ -1,24 +1,27 @@
-{ config, lib, ... }:
+{ config, lib, isDarwin, ... }:
 
 {
   options.dotfiles.features.home-manager.enable = lib.mkEnableOption "home-manager";
 
-  config = lib.mkIf config.dotfiles.features.home-manager.enable {
-    # This value determines the home Manager release that your
-    # configuration is compatible with. This helps avoid breakage
-    # when a new home Manager release introduces backwards
-    # incompatible changes.
-    #
-    # You can update home Manager without changing this value. See
-    # the home Manager release notes for a list of state version
-    # changes in each release.
-    home.stateVersion = "23.11";
+  config = lib.mkIf config.dotfiles.features.home-manager.enable (lib.mkMerge [
+    {
+      # This value determines the home Manager release that your
+      # configuration is compatible with. This helps avoid breakage
+      # when a new home Manager release introduces backwards
+      # incompatible changes.
+      #
+      # You can update home Manager without changing this value. See
+      # the home Manager release notes for a list of state version
+      # changes in each release.
+      home.stateVersion = "23.11";
 
-    # For Spotlight inter-op.
-    targets.darwin.copyApps.enable = true;
-    targets.darwin.linkApps.enable = false;
-
-    # Let home Manager install and manage itself.
-    programs.home-manager.enable = true;
-  };
+      # Let home Manager install and manage itself.
+      programs.home-manager.enable = true;
+    }
+    (lib.optionalAttrs isDarwin {
+      # For Spotlight inter-op.
+      targets.darwin.copyApps.enable = true;
+      targets.darwin.linkApps.enable = false;
+    })
+  ]);
 }
