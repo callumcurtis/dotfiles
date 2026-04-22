@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   options.dotfiles.features.claude-code.enable = lib.mkEnableOption "claude-code";
@@ -6,6 +6,7 @@
   config = lib.mkIf config.dotfiles.features.claude-code.enable {
     programs.claude-code = {
       enable = true;
+      package = pkgs.unstable.claude-code;
       memory.text = ''
         # Instructions for Claude Code
 
