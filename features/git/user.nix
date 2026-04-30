@@ -28,13 +28,14 @@
       gsss = "git stash save --staged -m";
       gsp = "git stash pop";
       gsa = "git stash apply";
+      gsha = "git rev-parse HEAD";
       gl = "git log --oneline";
       gll = "git log";
       gd = "git diff";
       gdh = "git diff HEAD";
       gds = "git diff --staged";
       ga = "git add";
-      gc = "git commit -m";
+      gc = "git commit";
       gca = "git commit --amend";
       gco = "git checkout";
       gcob = "git checkout -b";
@@ -42,6 +43,10 @@
       # TODO: add "gpos" which pushes all branches in the stack
       grb = "git rebase -i --update-refs";
       grl = "git reflog";
+      gr = "git restore";
+      grs = "git restore --staged";
+      gR = "git reset";
+      gRh = "git reset --hard";
     };
   };
 }
