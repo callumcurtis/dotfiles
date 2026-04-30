@@ -31,9 +31,12 @@
 
         # Workspace to monitor assignments
         workspace-to-monitor-force-assignment = {
-          "1" = 1;
+          "1" = 2;
           "2" = 2;
-          "3" = 3;
+          "3" = 2;
+          "4" = 1;
+          "5" = 3;
+          "6" = 2;
         };
 
         # Define modes
