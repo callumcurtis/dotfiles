@@ -49,6 +49,7 @@
         which-key-nvim
         gitsigns-nvim
         flash-nvim
+        nvim-scrollbar
       ]) ++ [ telescope-recent-files ];
 
       extraPackages = with pkgs; [
