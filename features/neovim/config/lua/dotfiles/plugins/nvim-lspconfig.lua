@@ -120,5 +120,6 @@ return {
     config_and_enable('rust_analyzer', {})
     config_and_enable('ts_ls', {})
     config_and_enable('clangd', {})
+    config_and_enable('mojo', {})
   end
 }
