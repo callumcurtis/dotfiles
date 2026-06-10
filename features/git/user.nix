@@ -47,6 +47,7 @@
       grs = "git restore --staged";
       gR = "git reset";
       gRh = "git reset --hard";
+      gbsc = "git branch --show-current";
     };
   };
 }
