@@ -83,6 +83,7 @@ in
       gd = "git diff";
       gdh = "git diff HEAD";
       gds = "git diff --staged";
+      gdom = "git diff origin/main";
       ga = "git add";
       gc = "git commit";
       gca = "git commit --amend";
