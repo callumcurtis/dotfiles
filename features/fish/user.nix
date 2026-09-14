@@ -14,6 +14,9 @@
       enable = true;
       enableFishIntegration = true;
     };
+    home.shellAliases = {
+      c = "clear";
+    };
   };
 }
 
