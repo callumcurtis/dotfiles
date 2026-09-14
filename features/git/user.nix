@@ -91,6 +91,7 @@ in
       gcob = "git checkout -b";
       gpo = "git push origin --force-with-lease";
       grb = "git rebase -i --update-refs";
+      grbom = "git rebase -i --update-refs origin/main";
       grl = "git reflog";
       gr = "git restore";
       grs = "git restore --staged";
