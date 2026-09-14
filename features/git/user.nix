@@ -70,6 +70,7 @@ in
     home.packages = [ gpos ];
 
     home.shellAliases = {
+      gf = "git fetch";
       gs = "git status";
       gsl = "git stash list";
       gss = "git stash save -m";
