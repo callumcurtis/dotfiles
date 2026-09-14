@@ -1,5 +1,51 @@
-{ config, lib, dotfiles, ... }:
+{ config, lib, pkgs, dotfiles, ... }:
 
+let
+  gpos = pkgs.writeShellScriptBin "gpos" ''
+    set -euo pipefail
+
+    yes=0
+    range="origin/main..HEAD"
+
+    while [ "$#" -gt 0 ]; do
+      case "$1" in
+        --yes|-y)
+          yes=1
+          shift
+          ;;
+        *)
+          range="$1"
+          shift
+          ;;
+      esac
+    done
+
+    branches=$(git log --oneline "$range" --pretty=%D \
+      | sed 's/.*HEAD -> \([^,)]*\).*/\1/' \
+      | sed -E 's/origin\/[^, ]*(, )?//g' \
+      | sed 's/, $//' \
+      | tac \
+      | grep -v '^$' || true)
+
+    if [ -z "$branches" ]; then
+      echo "No branches to push for range: $range"
+      exit 0
+    fi
+
+    if [ "$yes" -ne 1 ]; then
+      echo "The following branches will be force-pushed to origin:"
+      echo "$branches" | sed 's/^/  /'
+      printf 'Proceed? [y/N] '
+      read -r reply
+      case "$reply" in
+        y|Y|yes|Yes) ;;
+        *) echo "Aborted."; exit 1 ;;
+      esac
+    fi
+
+    echo "$branches" | xargs -I {} git push origin --force-with-lease {}
+  '';
+in
 {
   options.dotfiles.features.git = {
     enable = lib.mkEnableOption "git";
@@ -21,6 +67,8 @@
       };
     };
 
+    home.packages = [ gpos ];
+
     home.shellAliases = {
       gs = "git status";
       gsl = "git stash list";
@@ -40,7 +88,6 @@
       gco = "git checkout";
       gcob = "git checkout -b";
       gpo = "git push origin --force-with-lease";
-      # TODO: add "gpos" which pushes all branches in the stack
       grb = "git rebase -i --update-refs";
       grl = "git reflog";
       gr = "git restore";
