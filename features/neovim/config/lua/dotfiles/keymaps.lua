@@ -4,7 +4,13 @@ local keymap = vim.keymap
 
 -- save/quit
 keymap.set("n", "<leader>w", ":w ++p<CR>", { desc = "Write the buffer to the current file" })
-keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit the current window" })
+keymap.set("n", "<leader>q", function()
+  local diffview_lib = package.loaded["diffview.lib"]
+  if diffview_lib and diffview_lib.get_current_view() then
+    vim.cmd("DiffviewClose")
+  end
+  vim.cmd("q")
+end, { desc = "Quit the current window" })
 keymap.set("n", "<leader>Q", ":q!<CR>", { desc = "Force quit the current window" })
 
 -- highlight
@@ -23,6 +29,21 @@ keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
 keymap.set("n", "<leader>tt", "<cmd>tabclose<CR>", { desc = "Close current tab" })
 keymap.set("n", "<leader>tb", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
+
+keymap.set("n", "]h", function()
+  if vim.wo.diff then
+    vim.cmd.normal({ "]c", bang = true })
+  else
+    require("gitsigns").nav_hunk("next")
+  end
+end, { desc = "Next git hunk" })
+keymap.set("n", "[h", function()
+  if vim.wo.diff then
+    vim.cmd.normal({ "[c", bang = true })
+  else
+    require("gitsigns").nav_hunk("prev")
+  end
+end, { desc = "Previous git hunk" })
 
 -- jump list
 keymap.set("n", "<C-i>", "<C-S-i>") -- avoids conflict between <TAB> and <C-i>

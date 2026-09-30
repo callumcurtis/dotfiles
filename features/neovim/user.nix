@@ -50,6 +50,7 @@
         gitsigns-nvim
         flash-nvim
         nvim-scrollbar
+        diffview-nvim
       ]) ++ [ telescope-recent-files ];
 
       extraPackages = with pkgs; [
@@ -65,6 +66,10 @@
 
     home.shellAliases = lib.mkIf config.dotfiles.features.neovim.asDefaultEditor {
       v = "${config.programs.neovim.finalPackage}/bin/nvim";
+    };
+
+    programs.fish.functions = lib.mkIf config.dotfiles.features.neovim.asDefaultEditor {
+      vd = ''${config.programs.neovim.finalPackage}/bin/nvim -c "DiffviewOpen $argv"'';
     };
 
     home.sessionVariables = lib.mkIf config.dotfiles.features.neovim.asDefaultEditor {
