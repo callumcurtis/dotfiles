@@ -82,6 +82,7 @@ in
     dotfiles.features.tldr.enable = true;
     dotfiles.features.metarepo.enable = true;
     dotfiles.features.claude-code.enable = true;
+    dotfiles.features.codex.enable = true;
     dotfiles.features.delta.enable = true;
 
     dotfiles.features.git = {
