@@ -57,22 +57,14 @@ keymap.set('x', 'P', 'p', { desc = "Swap selection with register" })
 -- page up/down
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
-keymap.set("n", "<C-f>", function()
-  if vim.fn.line("w$") == vim.fn.line("$") then
-    vim.cmd("keepjumps normal! G")
-    return
+local function move_half_page_and_vertical_center(dir)
+  return function()
+    vim.cmd("normal! " .. vim.v.count1 * math.floor(vim.fn.winheight(0) / 2) .. dir)
+    vim.cmd("normal! zz")
   end
-  vim.cmd("normal! " .. vim.v.count1 .. vim.keycode("<C-f>"))
-  vim.cmd("keepjumps normal! M")
-end)
-keymap.set("n", "<C-b>", function()
-  if vim.fn.line("w0") == 1 then
-    vim.cmd("keepjumps normal! gg")
-    return
-  end
-  vim.cmd("normal! " .. vim.v.count1 .. vim.keycode("<C-b>"))
-  vim.cmd("keepjumps normal! M")
-end)
+end
+keymap.set("n", "<C-f>", move_half_page_and_vertical_center("j"))
+keymap.set("n", "<C-b>", move_half_page_and_vertical_center("k"))
 
 -- yank relative file path
 keymap.set("n", "<leader>yp", ":let @+ = expand('%')<CR>", { desc = "Yank relative file path", silent = true })
