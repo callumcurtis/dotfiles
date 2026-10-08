@@ -40,6 +40,7 @@
         nvim-lspconfig
         nvim-tree-lua
         nvim-treesitter.withAllGrammars
+        nvim-treesitter-context
         nvim-treesitter-textobjects
         nvim-ts-autotag
         nvim-web-devicons
