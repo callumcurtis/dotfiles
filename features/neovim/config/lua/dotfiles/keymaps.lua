@@ -13,6 +13,23 @@ keymap.set("n", "<leader>q", function()
 end, { desc = "Quit the current window" })
 keymap.set("n", "<leader>Q", ":q!<CR>", { desc = "Force quit the current window" })
 
+-- movement over wrapped lines
+for lhs, spec in pairs({
+  ["j"] = { "gj", "Down", true },
+  ["k"] = { "gk", "Up", true },
+  ["$"] = { "g$", "End of line", true },
+  ["0"] = { "g0", "Start of line", false },
+  ["^"] = { "g^", "First non-blank of line", false },
+}) do
+  local rhs, desc, takes_count = spec[1], spec[2], spec[3]
+  keymap.set({ "n", "x" }, lhs, function()
+    if vim.wo.wrap and vim.fn.mode() ~= "\22" and not (takes_count and vim.v.count > 0) then
+      return rhs
+    end
+    return lhs
+  end, { expr = true, desc = desc })
+end
+
 -- highlight
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear highlights" })
 
