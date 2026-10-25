@@ -73,8 +73,8 @@ in
       gf = "git fetch";
       gs = "git status";
       gsl = "git stash list";
-      gss = "git stash save -m";
-      gsss = "git stash save --staged -m";
+      gss = "git stash save";
+      gsss = "git stash save --staged";
       gsp = "git stash pop";
       gsa = "git stash apply";
       gsha = "git rev-parse HEAD";
