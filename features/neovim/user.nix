@@ -9,6 +9,8 @@
   config = lib.mkIf config.dotfiles.features.neovim.enable {
     programs.neovim = {
       enable = true;
+      withRuby = true;
+      withPython3 = true;
 
       plugins = let
         telescope-recent-files = pkgs.vimUtils.buildVimPlugin {
@@ -58,7 +60,7 @@
         llvmPackages_20.clang-tools
         lua-language-server
         nil
-        nodePackages.bash-language-server
+        bash-language-server
         pyright
         rust-analyzer
         typescript-language-server

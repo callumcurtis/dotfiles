@@ -14,7 +14,7 @@
     programs.aerospace = {
       enable = true;
       launchd.enable = true;
-      userSettings = {
+      settings = {
         # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
         enable-normalization-flatten-containers = true;
         enable-normalization-opposite-orientation-for-nested-containers = true;

@@ -60,6 +60,7 @@
 
     wayland.windowManager.hyprland = {
       enable = true;
+      configType = "hyprlang";
       package = dotfiles.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       portalPackage = dotfiles.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
       systemd.variables = ["--all"];
