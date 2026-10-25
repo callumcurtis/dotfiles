@@ -6,7 +6,6 @@
 // - 1 prefix key (Alt) for most common actions in normal mode
 // - Less common actions require switching mode or are removed
 // - Press escape, enter or space to switch back to normal mode
-// - Press Alt-q for quitting and Alt-d for detaching
 //
 // To access other modes from normal mode press
 // 1. Alt-r for resize, 2. Alt-p for pane,
@@ -18,7 +17,6 @@
 
 keybinds {
     normal clear-defaults=true {
-        bind "Alt q" { Quit; }
         bind "Alt d" { Detach; }
         bind "Alt p" { SwitchToMode "pane"; }
         bind "Alt r" { SwitchToMode "resize"; }
