@@ -38,6 +38,9 @@ return {
         folders_first = true,
         files_first = false,
       },
+      git = {
+        enable = false, -- slow for large repos
+      },
       filters = {
         git_ignored = false,
         custom = {
