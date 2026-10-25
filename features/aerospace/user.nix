@@ -40,7 +40,9 @@
         };
 
         # Move mouse
-        on-focused-monitor-changed = ["move-mouse monitor-lazy-center" "move-mouse window-lazy-center"];
+        on-focused-monitor-changed = ["move-mouse monitor-lazy-center"];
+        # https://github.com/nikitabobko/AeroSpace/issues/386
+        exec-on-workspace-change = [ "${config.programs.aerospace.package}/bin/aerospace" "move-mouse" "window-lazy-center" ];
 
         # Define modes
         mode.main.binding = {
@@ -61,7 +63,7 @@
           alt-l = ["focus right" "move-mouse monitor-force-center" "move-mouse window-force-center"];
           alt-k = ["focus up" "move-mouse monitor-force-center" "move-mouse window-force-center"];
           alt-j = ["focus down" "move-mouse monitor-force-center" "move-mouse window-force-center"];
-          alt-tab = ["workspace-back-and-forth" "move-mouse window-lazy-center"];
+          alt-tab = "workspace-back-and-forth";
 
           # Move window
           alt-shift-h = "move left";
@@ -70,16 +72,16 @@
           alt-shift-j = "move down";
 
           # Change workspace (absolute)
-          alt-1 = ["workspace 1" "move-mouse window-lazy-center"];
-          alt-2 = ["workspace 2" "move-mouse window-lazy-center"];
-          alt-3 = ["workspace 3" "move-mouse window-lazy-center"];
-          alt-4 = ["workspace 4" "move-mouse window-lazy-center"];
-          alt-5 = ["workspace 5" "move-mouse window-lazy-center"];
-          alt-6 = ["workspace 6" "move-mouse window-lazy-center"];
-          alt-7 = ["workspace 7" "move-mouse window-lazy-center"];
-          alt-8 = ["workspace 8" "move-mouse window-lazy-center"];
-          alt-9 = ["workspace 9" "move-mouse window-lazy-center"];
-          alt-0 = ["workspace 10" "move-mouse window-lazy-center"];
+          alt-1 = "workspace 1";
+          alt-2 = "workspace 2";
+          alt-3 = "workspace 3";
+          alt-4 = "workspace 4";
+          alt-5 = "workspace 5";
+          alt-6 = "workspace 6";
+          alt-7 = "workspace 7";
+          alt-8 = "workspace 8";
+          alt-9 = "workspace 9";
+          alt-0 = "workspace 10";
 
           # Move window to workspace
           alt-shift-1 = "move-node-to-workspace 1";
