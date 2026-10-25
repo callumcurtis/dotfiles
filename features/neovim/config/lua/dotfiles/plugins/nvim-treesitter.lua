@@ -6,47 +6,54 @@ return {
   },
 
   config = function()
-    local treesitter = require("nvim-treesitter.configs")
-
-    treesitter.setup({
-      highlight = { enable = true },
-      autotag = { enable = true },
-      ensure_installed = {},
-      indent = { enable = true },
-      auto_install = false,
-      textobjects = {
-        select = {
-          enable = true,
-          lookahead = true,
-          keymaps = {
-            ["af"] = "@function.outer",
-            ["if"] = "@function.inner",
-            ["ac"] = "@class.outer",
-            ["ic"] = "@class.inner",
-          },
-        },
-        move = {
-          enable = true,
-          set_jumps = true,
-          goto_next_start = {
-            ["]f"] = "@function.outer",
-            ["]c"] = "@class.outer",
-          },
-          goto_previous_start = {
-            ["[f"] = "@function.outer",
-            ["[c"] = "@class.outer",
-          },
-        },
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = '<TAB>',
-          scope_incremental = false,
-          node_incremental = '<TAB>',
-          node_decremental = '<S-TAB>',
-        },
-      },
+    vim.api.nvim_create_autocmd("FileType", {
+      group = vim.api.nvim_create_augroup("dotfiles_treesitter", { clear = true }),
+      callback = function(args)
+        if pcall(vim.treesitter.start, args.buf) then
+          vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+      end,
     })
+
+    require("nvim-ts-autotag").setup()
+
+    require("nvim-treesitter-textobjects").setup({
+      select = { lookahead = true },
+      move = { set_jumps = true },
+    })
+
+    local select = require("nvim-treesitter-textobjects.select")
+    for keys, query in pairs({
+      ["af"] = "@function.outer",
+      ["if"] = "@function.inner",
+      ["ac"] = "@class.outer",
+      ["ic"] = "@class.inner",
+    }) do
+      vim.keymap.set({ "x", "o" }, keys, function()
+        select.select_textobject(query, "textobjects")
+      end, { desc = "Select " .. query })
+    end
+
+    local move = require("nvim-treesitter-textobjects.move")
+    for keys, query in pairs({
+      ["]f"] = "@function.outer",
+      ["]c"] = "@class.outer",
+    }) do
+      vim.keymap.set({ "n", "x", "o" }, keys, function()
+        move.goto_next_start(query, "textobjects")
+      end, { desc = "Next " .. query .. " start" })
+    end
+    for keys, query in pairs({
+      ["[f"] = "@function.outer",
+      ["[c"] = "@class.outer",
+    }) do
+      vim.keymap.set({ "n", "x", "o" }, keys, function()
+        move.goto_previous_start(query, "textobjects")
+      end, { desc = "Previous " .. query .. " start" })
+    end
+
+    vim.keymap.set("n", "<TAB>", "van", { remap = true, desc = "Start node selection" })
+    vim.keymap.set("x", "<TAB>", "an", { remap = true, desc = "Expand node selection" })
+    vim.keymap.set("x", "<S-TAB>", "in", { remap = true, desc = "Shrink node selection" })
   end,
 }
