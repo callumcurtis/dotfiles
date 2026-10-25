@@ -8,6 +8,7 @@ return {
     local api = require("nvim-tree.api")
     local icons = require("dotfiles.icons")
     local keymap = vim.keymap
+    local augroup = vim.api.nvim_create_augroup("dotfiles_nvim_tree", { clear = true })
 
     require("nvim-tree").setup({
       on_attach = function(bufnr)
@@ -15,28 +16,17 @@ return {
           return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
         end
 
-        local function edit_or_open()
-          local node = api.tree.get_node_under_cursor()
-          if node.nodes ~= nil then
-            -- expand or collapse folder
-            api.node.open.edit()
-          else
-            -- open file
-            api.node.open.edit()
-            -- Close the tree if file was opened
-            api.tree.close()
-          end
-        end
-
         api.config.mappings.default_on_attach(bufnr)
 
         -- TODO: implement recursive subfolder close/open bound to H/L keys
         -- See: https://github.com/nvim-tree/nvim-tree.lua/blob/f5f67892996b280ae78b1b0a2d07c4fa29ae0905/lua/nvim-tree/actions/tree/modifiers/collapse-all.lua
-        keymap.set("n", "l", edit_or_open, opts("Open"))
+        keymap.set("n", "l", api.node.open.edit, opts("Open"))
       end,
       view = {
-        width = 30,
-        adaptive_size = true,
+        width = {
+          min = 30,
+          max = 40,
+        },
         cursorline = true,
         side = "left",
         number = true,
@@ -56,6 +46,7 @@ return {
         },
       },
       renderer = {
+        highlight_opened_files = "all",
         symlink_destination = true,
         indent_markers = {
           enable = false,
@@ -139,7 +130,63 @@ return {
       },
     })
 
-    keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
+    local function find_and_center(bufnr)
+      api.tree.find_file({ buf = bufnr })
+      local winid = api.tree.winid()
+      if winid then
+        vim.api.nvim_win_call(winid, function()
+          vim.cmd("normal! zz")
+        end)
+      end
+    end
+
+    -- Follow the focused file, reveal and center it in the tree
+    vim.api.nvim_create_autocmd("BufEnter", {
+      group = augroup,
+      callback = function(args)
+        if vim.bo[args.buf].buftype == "" and not api.tree.is_tree_buf(args.buf) then
+          find_and_center(args.buf)
+        end
+      end,
+    })
+
+    -- Open the tree on startup without stealing focus
+    vim.api.nvim_create_autocmd("VimEnter", {
+      group = augroup,
+      callback = function()
+        local buf = vim.api.nvim_get_current_buf()
+        if api.tree.is_visible() or vim.bo[buf].buftype ~= "" then
+          return
+        end
+        api.tree.toggle({ focus = false })
+        find_and_center(buf)
+      end,
+    })
+
+    -- Quit fully instead of leaving the tree as the only window
+    vim.api.nvim_create_autocmd("QuitPre", {
+      group = augroup,
+      callback = function()
+        local tree_wins, other_wins = {}, 0
+        for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+          if api.tree.is_tree_buf(vim.api.nvim_win_get_buf(win)) then
+            table.insert(tree_wins, win)
+          elseif vim.api.nvim_win_get_config(win).relative == "" then
+            other_wins = other_wins + 1
+          end
+        end
+        if other_wins == 1 then
+          for _, win in ipairs(tree_wins) do
+            vim.api.nvim_win_close(win, true)
+          end
+        end
+      end,
+    })
+
+    keymap.set("n", "<leader>ee", function()
+      api.tree.toggle({ focus = false })
+      find_and_center(vim.api.nvim_get_current_buf())
+    end, { desc = "Toggle file explorer" })
     keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFile<CR>", { desc = "Focus current file in explorer" })
   end,
 }
