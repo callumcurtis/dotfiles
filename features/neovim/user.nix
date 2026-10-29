@@ -54,6 +54,7 @@
         flash-nvim
         nvim-scrollbar
         diffview-nvim
+        vim-tmux-navigator
       ]) ++ [ telescope-recent-files ];
 
       extraPackages = with pkgs; [
@@ -88,6 +89,8 @@
       src = ./config/init.lua;
       substitutions = [
         "--subst-var-by" "packpath" "${pkgs.vimUtils.packDir config.programs.neovim.finalPackage.passthru.packpathDirs}/pack/myNeovimPackages/start"
+        "--subst-var-by" "active_background" config.dotfiles.features.stylix.activeBackground
+        "--subst-var-by" "inactive_background" config.dotfiles.features.stylix.inactiveBackground
       ];
     };
   };

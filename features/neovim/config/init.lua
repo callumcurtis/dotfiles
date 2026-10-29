@@ -1,3 +1,7 @@
+-- Backgrounds for focused and unfocused splits, shared with tmux's panes (substituted in the Nix layer)
+vim.g.active_background = "@active_background@"
+vim.g.inactive_background = "@inactive_background@"
+
 require("dotfiles.options")
 require("dotfiles.keymaps")
 require("dotfiles.autocmds")

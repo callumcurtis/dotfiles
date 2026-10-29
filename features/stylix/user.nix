@@ -6,6 +6,18 @@
   options.dotfiles.features.stylix = {
     enable = lib.mkEnableOption "stylix";
     theme = dotfiles.lib.mkTypedOption lib.types.path;
+    # From the theme: backgrounds for focused and unfocused tmux panes and Neovim splits. The focused one is base16's
+    # lighter background (base01), the rest keep the default background (base00).
+    activeBackground = lib.mkOption {
+      type = lib.types.str;
+      readOnly = true;
+      default = config.lib.stylix.colors.withHashtag.base01;
+    };
+    inactiveBackground = lib.mkOption {
+      type = lib.types.str;
+      readOnly = true;
+      default = config.lib.stylix.colors.withHashtag.base00;
+    };
   };
 
   config = lib.mkIf config.dotfiles.features.stylix.enable {

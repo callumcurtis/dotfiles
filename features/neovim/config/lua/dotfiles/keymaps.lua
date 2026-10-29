@@ -41,6 +41,16 @@ keymap.set("n", "-", "<C-x>", { desc = "Decrement number" })
 keymap.set("n", "<leader>ss", "<cmd>close<CR>", { desc = "Close current split" })
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
+-- disable the built-in split focus keys, in favour of Alt-h/j/k/l and Alt-o (see plugins/vim-tmux-navigator.lua)
+for _, key in ipairs({ "h", "j", "k", "l", "p" }) do
+  local ctrl = "<C-" .. key .. ">"
+  for _, lhs in ipairs({ "<C-w>" .. key, "<C-w>" .. ctrl }) do
+    keymap.set("n", lhs, "<Nop>", { desc = "Disabled: use Alt-h/j/k/l/o" })
+  end
+end
+for _, arrow in ipairs({ "<Left>", "<Down>", "<Up>", "<Right>" }) do
+  keymap.set("n", "<C-w>" .. arrow, "<Nop>", { desc = "Disabled: use Alt-h/j/k/l" })
+end
 
 -- tab management
 keymap.set("n", "<leader>tt", "<cmd>tabclose<CR>", { desc = "Close current tab" })

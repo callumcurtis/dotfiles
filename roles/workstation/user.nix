@@ -55,7 +55,7 @@ in
     # Terminal configuration.
     dotfiles.features.make-darwin-linux-like.enable = true;
     dotfiles.features.fish.enable = true;
-    dotfiles.features.zellij = {
+    dotfiles.features.tmux = {
       enable = true;
       inherit shell;
     };
